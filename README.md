@@ -210,7 +210,9 @@ Každá má nad hlavičkou kompozici z produktových fotek v rámečku
 `.tier-photo` (poměr 16:10, `object-fit: contain`):
 `assets/sestava-fve.jpg` (panel + střídač) u varianty Start,
 `assets/sestava-fve-baterie.jpg` (panel + střídač + baterie) u Optimal
-a Max. Pozadí rámečku je `#FAFAFA`, aby splynulo s pozadím renderů. Výkon v hlavičce (`.tier-spec`) má žlutý rámeček.
+a Max. Obrázky jsou v poměru **16:10 (1000×625)**, stejném jako rámeček —
+podklad po stranách je dokreslený přímo v obrázku barvou jeho okraje, takže
+nevzniká šev. Při výměně obrázku ten poměr dodržet. Výkon v hlavičce (`.tier-spec`) má žlutý rámeček.
 Výkon je i v hlavičce karty (`.tier-spec`), aby ho zákazník viděl bez čtení
 odrážek. Doplňky mimo cenu (baterie k Základu za 69 tis., wallbox od 19 tis.)
 mají odrážku `li.plus` se žlutým plusem. K tomu **79 tis. Kč**
