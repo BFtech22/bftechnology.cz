@@ -472,6 +472,11 @@
     font-size: 15px; font-weight: 700;
     text-transform: uppercase; letter-spacing: 0.06em;
   }
+  /* Vykon rovnou v hlavicce karty, aby ho zakaznik videl bez cteni odrazek. */
+  .tier .tier-spec {
+    margin-right: auto; font-size: 12.5px; font-weight: 700;
+    letter-spacing: 0.04em; opacity: 0.85; white-space: nowrap;
+  }
   .tier .tier-flag {
     font-size: 11px; font-weight: 700;
     text-transform: uppercase; letter-spacing: 0.08em;
@@ -510,6 +515,15 @@
   }
   .tier ul li.off { color: #a5a5a5; }
   .tier ul li.off::before { background: #d8d8d8; }
+  /* Doplnky k variante (baterie, wallbox) — nejsou v cene, ale nejsou to
+     ani chybejici polozky, takze zluty plus misto zelene carky. */
+  .tier ul li.plus::before {
+    content: "+"; background: none; border-radius: 0;
+    width: auto; height: auto; top: 6px;
+    color: var(--yellow); font-weight: 900; font-size: 17px; line-height: 1;
+  }
+  .tier ul li.plus { color: var(--text); }
+  .tier ul li.plus strong { color: var(--black); }
   .tier .tier-cta {
     margin-top: auto;
     display: block; text-align: center;
@@ -914,6 +928,10 @@
     .reviews-grid,
     .reviews-grid.cols-3 { grid-template-columns: 1fr; }
     .review-quote { padding: 24px 22px; }
+    /* Nazev + vykon + stitek "Nejcastejsi volba" se na uzkem displeji do
+       jednoho radku nevejdou — necháme stitek spadnout pod. */
+    .tier .tier-hdr { flex-wrap: wrap; row-gap: 6px; }
+    .tier .tier-spec { margin-right: 0; }
     .steps { grid-template-columns: 1fr; gap: 10px; }
     .seg-tab { flex: 1 1 100%; justify-content: center; padding: 12px 16px; }
     .addon { grid-template-columns: 1fr; gap: 14px; text-align: left; }

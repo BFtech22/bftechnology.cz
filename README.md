@@ -204,7 +204,11 @@ Taby segmentů — **Rodinné domy** (tři varianty + ohřev vody), **Bytové do
 a **Firmy a průmysl** (reálné realizace z IG + výzva k individuální kalkulaci).
 Taby jsou přístupné z klávesnice (šipky vlevo/vpravo), přepínání řeší `segmentTabs()`.
 
-Cenové hladiny: **199 / 329 / 399 tis. Kč** pro rodinné domy a **79 tis. Kč**
+Varianty pro rodinné domy — **Základ** (4,5 kWp, od 189 tis.), **Standard**
+(10 kWp + 10 kWh, od 329 tis.) a **Soběstačnost** (13 kWp + 15 kWh, od 379 tis.).
+Výkon je i v hlavičce karty (`.tier-spec`), aby ho zákazník viděl bez čtení
+odrážek. Doplňky mimo cenu (baterie k Základu za 69 tis., wallbox od 19 tis.)
+mají odrážku `li.plus` se žlutým plusem. K tomu **79 tis. Kč**
 za fotovoltaický ohřev vody. Všechny jsou **včetně DPH 12 %** (snížená sazba pro
 instalace na rodinných domech). Uvedeno v `price-note` u každé varianty, u ohřevu
 vody ve `span.vat` a rozepsáno v disclaimeru pod ceníkem.
