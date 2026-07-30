@@ -206,11 +206,11 @@ Taby jsou přístupné z klávesnice (šipky vlevo/vpravo), přepínání řeš�
 
 Varianty pro rodinné domy — **Start** (4,5 kWp, od 189 tis.), **Optimal**
 (10 kWp + 10 kWh, od 329 tis.) a **Max** (13 kWp + 15 kWh, od 379 tis.).
-Každá má nad hlavičkou vlastní vektorovou ilustraci sestavy
-(`assets/tier-start.svg`, `tier-optimal.svg`, `tier-max.svg`) v rámečku
-`.tier-photo` s poměrem 16:10 a `object-fit: contain`. Ilustrace se liší
-počtem modulů bateriové věže: Start bez baterie, Optimal 2 moduly, Max 4.
-Výkon v hlavičce (`.tier-spec`) má žlutý rámeček.
+Každá má nad hlavičkou kompozici z produktových fotek v rámečku
+`.tier-photo` (poměr 16:10, `object-fit: contain`):
+`assets/sestava-fve.png` (panel + střídač) u varianty Start,
+`assets/sestava-fve-baterie.png` (panel + střídač + baterie) u Optimal
+a Max. Výkon v hlavičce (`.tier-spec`) má žlutý rámeček.
 Výkon je i v hlavičce karty (`.tier-spec`), aby ho zákazník viděl bez čtení
 odrážek. Doplňky mimo cenu (baterie k Základu za 69 tis., wallbox od 19 tis.)
 mají odrážku `li.plus` se žlutým plusem. K tomu **79 tis. Kč**
