@@ -204,8 +204,10 @@ Taby segmentů — **Rodinné domy** (tři varianty + ohřev vody), **Bytové do
 a **Firmy a průmysl** (reálné realizace z IG + výzva k individuální kalkulaci).
 Taby jsou přístupné z klávesnice (šipky vlevo/vpravo), přepínání řeší `segmentTabs()`.
 
-Varianty pro rodinné domy — **Základ** (4,5 kWp, od 189 tis.), **Standard**
-(10 kWp + 10 kWh, od 329 tis.) a **Soběstačnost** (13 kWp + 15 kWh, od 379 tis.).
+Varianty pro rodinné domy — **Start** (4,5 kWp, od 189 tis.), **Optimal**
+(10 kWp + 10 kWh, od 329 tis.) a **Max** (13 kWp + 15 kWh, od 379 tis.).
+Každá má nad hlavičkou ilustrativní fotku (`.tier-photo`, poměr 16:10)
+z našich realizací — není to přesně ta konfigurace.
 Výkon je i v hlavičce karty (`.tier-spec`), aby ho zákazník viděl bez čtení
 odrážek. Doplňky mimo cenu (baterie k Základu za 69 tis., wallbox od 19 tis.)
 mají odrážku `li.plus` se žlutým plusem. K tomu **79 tis. Kč**
