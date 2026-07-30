@@ -635,18 +635,17 @@
   <div class="container">
     <div class="section-head">
       <p class="eyebrow">Součást skupiny</p>
-      <h2>Na velké projekty máme sestru — BFK systems</h2>
-      <p>BF technology a BFK systems tvoří jednu skupinu pod společným vedením, se stejným sídlem i telefonem. Dělíme se podle velikosti a náročnosti zakázky, takže vás nemusíme odmítnout — jen předáme kolegům přes chodbu.</p>
+      <h2>Na velké projekty je tu BFK systems</h2>
+      <p>BF technology a BFK systems tvoří jednu skupinu pod společným vedením, se stejným sídlem i telefonem.</p>
     </div>
     <div class="group-split">
       <div class="group-col">
         <h3>BF technology</h3>
         <p class="group-role">Flexibilní a menší instalace</p>
         <ul>
+          <li>Firmy a veřejné budovy</li>
+          <li>Bateriová úložiště</li>
           <li>Rodinné domy, bytové domy a SVJ</li>
-          <li>Firmy a veřejné budovy <strong>2–999 kWp</strong></li>
-          <li>Bateriová úložiště <strong>10 kWh – 5 MWh</strong></li>
-          <li>Wallboxy, chytrá domácnost Loxone, servis</li>
         </ul>
       </div>
       <div class="group-col">
@@ -806,6 +805,7 @@
 <script>
 // ---------- Insta lišta — FVE reference z @bftechnology_sro ----------
 const INSTA_POSTS = [
+  {code:"vysonin-999kwp", date:"červenec 2026", title:"Vysonín — naše největší realizace", kwp:"999 kWp", detail:"pozemní elektrárna včetně nové trafostanice", static:true},
   {code:"DZjcImrIds9", date:"červen 2026",   title:"Nový Bor — rodinný dům",          kwp:"11,04 kWp", detail:"24× Trina Solar · baterie Dyness 17,76 kWh · wallbox"},
   {code:"DZH5j6RIC-B", date:"červen 2026",   title:"Varnsdorf — průmyslový objekt",   kwp:"49,59 kWp", detail:"91 panelů · bateriové úložiště 35 kWh"},
   {code:"DY7BKuXIYuj", date:"květen 2026",   title:"Krásná Lípa — rodinný dům",       kwp:"12,15 kWp", detail:"baterie 14 kWh · nabíječka elektromobilu"},
@@ -828,19 +828,22 @@ const IG_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
 
 (function renderStrip() {
   const strip = document.getElementById('insta-strip');
-  strip.innerHTML = INSTA_POSTS.map(p => `
-    <a class="ig-card" href="https://www.instagram.com/p/${p.code}/" target="_blank" rel="noopener" title="Otevřít příspěvek na Instagramu">
+  strip.innerHTML = INSTA_POSTS.map(p => {
+    const inner = `
       <div class="ph">
         <img src="foto/insta/${p.code}.jpg" alt="${p.title} — instalace FVE od BF Technology" loading="lazy">
         ${p.kwp ? `<span class="kwp">${p.kwp}</span>` : ''}
-        <span class="ig-ico">${IG_SVG}</span>
+        ${p.static ? '' : `<span class="ig-ico">${IG_SVG}</span>`}
       </div>
       <div class="nfo">
         <h3>${p.title}</h3>
         <p>${p.detail}</p>
         <div class="dt"><span>${p.date}</span><span>#FVE</span></div>
-      </div>
-    </a>`).join('');
+      </div>`;
+    return p.static
+      ? `<div class="ig-card is-static">${inner}</div>`
+      : `<a class="ig-card" href="https://www.instagram.com/p/${p.code}/" target="_blank" rel="noopener" title="Otevřít příspěvek na Instagramu">${inner}</a>`;
+  }).join('');
 
   const prev = document.getElementById('strip-prev');
   const next = document.getElementById('strip-next');
