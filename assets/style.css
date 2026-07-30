@@ -221,6 +221,20 @@
     color: rgba(255,255,255,0.94);
     text-shadow: 0 2px 8px rgba(0,0,0,0.5);
   }
+  /* Duveryhodnostni radek pod leadem — zelena fajfka a tucny text. */
+  .hero-claim {
+    /* fit-content, protoze display: inline-flex tu prebiji jine pravidlo
+       a pilulka by se roztahla pres celou sirku hero bloku */
+    display: inline-flex; width: fit-content; align-self: flex-start;
+    align-items: center; gap: 10px;
+    margin: 20px 0 0; padding: 9px 16px 9px 13px;
+    background: rgba(0,0,0,0.32); border-radius: 999px;
+    backdrop-filter: blur(4px);
+    font-size: clamp(14px, 1.5vw, 16px); font-weight: 700;
+    color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  }
+  .hero-claim svg { width: 18px; height: 18px; color: var(--green); flex-shrink: 0; }
+
   .hero .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
   .btn {
     display: inline-block;
