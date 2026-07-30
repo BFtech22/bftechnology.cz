@@ -23,6 +23,7 @@ formuláře) jazyk nabídky drží dál.
 ├── bytove-domy-svj.html            # bytové domy a SVJ
 ├── bateriova-uloziste.html         # baterie 10 kWh – 5 MWh
 ├── ohrev-vody.html                 # fotovoltaický ohřev vody
+├── inzenyrske-sluzby.html          # RfG simulace, řízení a monitoring, VN a trafostanice
 ├── kontakt.html                    # kontakt + formulář
 ├── reference.html                  # všechny realizace podle segmentu
 ├── CNAME.disabled          # vlastní doména — ZÁMĚRNĚ neaktivní, viz níže
@@ -63,6 +64,7 @@ adresy nebo odkazů v patičce je nutné projít všechny `.html` v korenu:
 - `bytove-domy-svj.html`
 - `bateriova-uloziste.html`
 - `ohrev-vody.html`
+- `inzenyrske-sluzby.html`
 - `kontakt.html`
 - `reference.html`
 
@@ -81,7 +83,8 @@ Segmentová struktura — hlavní položka **Fotovoltaika** se rozbaluje:
 Fotovoltaika ▾ ── Rodinné domy
                ├─ Bytové domy a SVJ
                ├─ Firmy a průmysl
-               └─ Fotovoltaický ohřev vody
+               ├─ Fotovoltaický ohřev vody
+               └─ Inženýrské služby
 Bateriová úložiště | Ceník | Reference | Dotazy | Kontakt   + CTA
 ```
 
