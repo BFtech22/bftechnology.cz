@@ -681,7 +681,10 @@
     color: var(--text);
   }
   .ig-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(60,60,60,0.18); color: var(--text); }
-  .ig-card .ph { position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: var(--grey-bg); }
+  /* 4:3 podle skutecneho kadrovani fotek — Instagram je v nahledu servíruje
+     orizle na ctverec, ale pres /media/?size=l se stahuji v puvodnim zaberu.
+     Ctvercovy ram by je orizl zpatky a uriznul kraje strech. */
+  .ig-card .ph { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--grey-bg); }
   .ig-card .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
   .ig-card:hover .ph img { transform: scale(1.05); }
   .ig-card .ph .kwp {
