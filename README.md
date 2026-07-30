@@ -25,7 +25,7 @@ formuláře) jazyk nabídky drží dál.
 ├── ohrev-vody.html                 # fotovoltaický ohřev vody
 ├── kontakt.html                    # kontakt + formulář
 ├── reference.html                  # všechny realizace podle segmentu
-├── CNAME                   # www.bftechnology.cz (GitHub Pages)
+├── CNAME.disabled          # vlastní doména — ZÁMĚRNĚ neaktivní, viz níže
 ├── POZNAMKY-INTERNI.md     # pracovní poznámky, v .gitignore (není v repu)
 ├── assets/
 │   ├── style.css       # VŠECHNY styly (sdílené všemi stránkami)
@@ -138,6 +138,33 @@ při aktualizaci ho nezapomenout přepsat.
 
 Zobrazují se pouze agregovaná čísla a odkaz na zdroj, ne texty jednotlivých
 recenzí.
+
+### Nasazení na GitHub Pages
+
+Web běží na Pages z branche `main`, složka `/ (root)`. Náhledová adresa:
+<https://bftech22.github.io/bftechnology.cz/>
+
+**Vlastní doména je zatím vypnutá.** Soubor s doménou je pojmenovaný
+`CNAME.disabled`, aby si ho Pages nevšimly — jinak by náhledová adresa
+přesměrovávala na `www.bftechnology.cz`, kde běží ještě starý web.
+
+Až se bude přepínat doména:
+
+1. `git mv CNAME.disabled CNAME` a pushnout
+2. v *Settings → Pages* zkontrolovat, že se doména nastavila
+3. u registrátora (DNS spravuje **Webglobe**) přesměrovat `www` na
+   `bftech22.github.io`
+4. zapnout *Enforce HTTPS*, až se DNS propíše
+
+> Pozor: na `www.bftechnology.cz` **běží funkční starý web** (IP
+> `195.181.248.157`, hosting Webglobe). Přepnutím DNS přestane být dostupný —
+> předem zazálohovat. Alternativa: nový web nahrát na stávající hosting přes
+> FTP a s DNS nehýbat vůbec.
+
+Kanonické odkazy (`<link rel="canonical">`) a `og:url` na všech stránkách míří
+na `https://www.bftechnology.cz/…`. Na náhledové adrese tedy ukazují „jinam" —
+u krátkodobého náhledu to nevadí, před spuštěním na vlastní doméně to bude
+správně.
 
 ### Plánované
 
