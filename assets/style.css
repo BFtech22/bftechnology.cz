@@ -35,6 +35,20 @@
   }
   .site-header .row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; gap: 16px; }
   .brand img { height: 52px; width: auto; }
+  /* Logo a ikonky siti drzi pohromade vlevo — bez obalu by je flex
+     s justify-content: space-between roztahl po celé sirce hlavicky. */
+  .brand-wrap { display: flex; align-items: center; gap: 18px; }
+  .hdr-social { display: flex; gap: 6px; }
+  .hdr-social a {
+    display: flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 50%;
+    color: var(--dark); background: var(--grey-bg);
+    transition: background .2s, color .2s, transform .15s;
+  }
+  .hdr-social a:hover {
+    background: var(--green); color: #fff; transform: translateY(-1px);
+  }
+  .hdr-social svg { width: 17px; height: 17px; }
   nav.primary { display: flex; gap: 26px; align-items: center; }
   nav.primary a {
     color: var(--dark); font-weight: 700; font-size: 14px;
@@ -570,6 +584,10 @@
 
   /* Segmenty bez fixního ceníku (bytovky, firmy) */
   .seg-cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  /* Pro ctyri karty — ve trech sloupcich by ctvrta zustala sama na druhem
+     radku. Mobilni prepis je v @media nize (vyssi specificita by ho jinak
+     prebila). */
+  .seg-cases.cols-2 { grid-template-columns: repeat(2, 1fr); }
   .seg-case {
     background: var(--white);
     border: 1px solid var(--line);
@@ -904,7 +922,8 @@
     .steps { grid-template-columns: 1fr 1fr; }
     .faq { grid-template-columns: 1fr; }
     .tiers { grid-template-columns: 1fr; }
-    .seg-cases { grid-template-columns: 1fr; }
+    .seg-cases,
+    .seg-cases.cols-2 { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr; }
     .supplier-strip { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; gap: 36px; }
