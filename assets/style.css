@@ -106,12 +106,17 @@
   }
   .mobile-menu a.m-sub { padding-left: 16px; font-size: 17px; }
 
+  /* Selektor musi byt specifictejsi nez "nav.primary a" (0,1,2) — jinak by
+     tlacitko prebiral padding 6px 0 z obycejnych odkazu v menu a nemelo by
+     zadne mezery po stranach. */
+  nav.primary a.header-cta,
   .header-cta {
     background: var(--green); color: #fff !important; font-weight: 700;
-    padding: 10px 20px; border-radius: 4px; font-size: 13px;
+    padding: 15px 34px; border-radius: 4px; font-size: 14px;
     text-transform: uppercase; letter-spacing: 0.6px;
     transition: background .2s; white-space: nowrap;
   }
+  nav.primary a.header-cta::after { display: none; }
   .header-cta:hover { background: var(--dark); }
 
   .hamburger {
@@ -227,8 +232,10 @@
     padding: 26px 0;
     color: #fff;
   }
+  /* Tri dlazdice — po odebrani "24/7 Servisni podpora" by ctyri sloupce
+     nechavaly prazdne misto vpravo a pruh vypadal rozhozene. */
   .stats-band .grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
   }
   .stats-band .num {
     font-size: clamp(24px, 3vw, 36px); font-weight: 900; line-height: 1;
@@ -653,6 +660,25 @@
 
   /* ============= RECENZE (agregovana cisla z refsite.info) ============= */
   .reviews-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .reviews-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+  /* Citace jednoho hodnoceni — text je od zakaznika z refsite.info,
+     uveden se jmenem, datem a odkazem na zdroj v sekci. */
+  .review-quote {
+    margin: 0 0 22px; padding: 30px 34px;
+    background: var(--white); border: 1px solid var(--line);
+    border-left: 5px solid var(--green); border-radius: 6px;
+  }
+  .review-quote p {
+    margin: 0 0 16px; font-size: clamp(19px, 2.2vw, 26px);
+    line-height: 1.4; font-weight: 500; color: var(--black);
+  }
+  .review-quote footer { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; }
+  .review-quote .who {
+    font-size: 14px; font-weight: 900; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--green-d);
+  }
+  .review-quote .when { font-size: 13px; color: #8a8a8a; }
   .review-stat {
     background: var(--white); border: 1px solid var(--line);
     border-radius: 6px; padding: 26px 24px;
@@ -855,7 +881,8 @@
   @media (max-width: 980px) {
     .services { grid-template-columns: 1fr 1fr; }
     .ig-grid { grid-template-columns: repeat(2, 1fr); }
-    .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+    .reviews-grid,
+    .reviews-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
     .group-split { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr 1fr; }
     .faq { grid-template-columns: 1fr; }
@@ -875,14 +902,18 @@
       flex-direction: column; align-items: flex-start; gap: 12px;
       font-size: 12px; letter-spacing: 0.12em; margin-bottom: 18px;
     }
-    .stats-band .grid { grid-template-columns: 1fr 1fr; gap: 18px; }
+    /* Tri dlazdice ve dvou sloupcich nechavaly tretí samotnou na druhem radku,
+       takze pod 980 px jde kazda na svuj radek. */
+    .stats-band .grid { grid-template-columns: 1fr; gap: 16px; }
     /* Nejdelsi hodnota ("10 kWh – 5 MWh") se ve dvou sloupcich lamala na dva
        radky a rozjizdela popisky v radku — drzime vsechny na jednom radku. */
     .stats-band .num { font-size: 20px; white-space: nowrap; }
     .services,
     .services.cols-2 { grid-template-columns: 1fr; }
     .ig-grid { grid-template-columns: 1fr; }
-    .reviews-grid { grid-template-columns: 1fr; }
+    .reviews-grid,
+    .reviews-grid.cols-3 { grid-template-columns: 1fr; }
+    .review-quote { padding: 24px 22px; }
     .steps { grid-template-columns: 1fr; gap: 10px; }
     .seg-tab { flex: 1 1 100%; justify-content: center; padding: 12px 16px; }
     .addon { grid-template-columns: 1fr; gap: 14px; text-align: left; }
