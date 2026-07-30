@@ -695,6 +695,11 @@
     color: var(--text);
   }
   .ig-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(60,60,60,0.18); color: var(--text); }
+  /* Realizace bez prispevku na Instagramu — karta neni odkaz, takze se ani
+     nesmi tvarit jako klikaci. */
+  .ig-card.is-static { cursor: default; }
+  .ig-card.is-static:hover { transform: none; box-shadow: none; }
+  .ig-card.is-static:hover .ph img { transform: none; }
   /* 4:3 podle skutecneho kadrovani fotek — Instagram je v nahledu servíruje
      orizle na ctverec, ale pres /media/?size=l se stahuji v puvodnim zaberu.
      Ctvercovy ram by je orizl zpatky a uriznul kraje strech. */
