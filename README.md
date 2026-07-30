@@ -81,8 +81,7 @@ Segmentová struktura — hlavní položka **Fotovoltaika** se rozbaluje:
 Fotovoltaika ▾ ── Rodinné domy
                ├─ Bytové domy a SVJ
                ├─ Firmy a průmysl
-               ├─ Fotovoltaický ohřev vody
-               └─ Wallboxy a další služby  → index.html#sluzby
+               └─ Fotovoltaický ohřev vody
 Bateriová úložiště | Ceník | Reference | Dotazy | Kontakt   + CTA
 ```
 
