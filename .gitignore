@@ -1,0 +1,22 @@
+# Interní poznámky — repozitář je VEŘEJNÝ, tohle se do něj nesmí dostat.
+POZNAMKY-INTERNI.md
+
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.AppleDouble
+.LSOverride
+Icon?
+
+# editory
+*.swp
+*~
+.vscode/
+.idea/
+
+# iCloud — složka je v ~/Documents, iCloud si sem občas odloží konfliktní kopie
+*conflicted copy*
+*.icloud
