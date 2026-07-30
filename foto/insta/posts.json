@@ -126,6 +126,15 @@
     "kategorie": "firmy"
   },
   {
+    "code": "DJvqYbTMoux",
+    "date": "2025-05-16",
+    "title": "Rumburk — Heckl, průmyslová střecha",
+    "kwp": "24,94 kWp",
+    "detail": "58 flexibilních panelů Sunman 430 Wp lepených přímo na trapézový plech",
+    "img": "",
+    "kategorie": "firmy"
+  },
+  {
     "code": "DEVlmJxO2zQ",
     "date": "2025-01-02",
     "title": "Varnsdorf — základní škola",
@@ -142,5 +151,59 @@
     "detail": "instalace na klíč",
     "img": "https://scontent.cdninstagram.com/v/t51.75761-15/469418571_17959739561828037_1415162340026896326_n.jpg?stp=c216.0.648.648a_dst-jpg_e35_s640x640_tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=MHkK4YnlEDwQ7kNvwFwkQFW&_nc_oc=AdrX-uHujms-5Vz488WDHQj1NgClxTuGh74BIYKpyWQG79l67o1RgFQqMRA65RLq76k&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=WtbeuKCIHijzkehyebnscg&_nc_ss=7b689&oh=00_AQCT4bxf4HyIvQAdXhOShz4ITh1HVU1YIVi_HONT7CYavQ&oe=6A702D4E",
     "kategorie": "rodinne-domy"
+  },
+  {
+    "code": "DDEwia7u-H8",
+    "date": "2024-12-02",
+    "title": "Rožany — restaurace Starý mlýn",
+    "kwp": "12,15 kWp",
+    "detail": "elektrárna a nabíječka pro elektromobily, na klíč",
+    "kategorie": "firmy",
+    "img": ""
+  },
+  {
+    "code": "DB81wiANldf",
+    "date": "2024-11-04",
+    "title": "Varnsdorf — bytový dům",
+    "kwp": "36 kWp",
+    "detail": "baterie 42 kWh a dvě nabíječky, včetně vyřízení dotace",
+    "kategorie": "bytove-domy",
+    "img": ""
+  },
+  {
+    "code": "DAjjt43OpSU",
+    "date": "2024-09-30",
+    "title": "Děčín — kemp",
+    "kwp": "47,96 kWp",
+    "detail": "s automatizací Loxone pro efektivní ohřev vody",
+    "kategorie": "firmy",
+    "img": ""
+  },
+  {
+    "code": "C8u8Ap8O0C5",
+    "date": "2024-06-27",
+    "title": "Vlčí Hora",
+    "kwp": "21,2 kWp",
+    "detail": "bateriové úložiště Dyness 21 kWh",
+    "kategorie": "rodinne-domy",
+    "img": ""
+  },
+  {
+    "code": "C75tEOGN5q2",
+    "date": "2024-06-06",
+    "title": "Dolní Podluží",
+    "kwp": "42 kWp",
+    "detail": "baterie 60 kWh a tři wallboxy pro nabíjení elektromobilů",
+    "kategorie": "firmy",
+    "img": ""
+  },
+  {
+    "code": "CzrrrDXNkYI",
+    "date": "2023-11-15",
+    "title": "Rumburk — průmyslová střecha",
+    "kwp": "38,81 kWp",
+    "detail": "62 lepených panelů Sunman 430 W a 27 panelů Canadian Solar 450 W",
+    "kategorie": "firmy",
+    "img": ""
   }
 ]
