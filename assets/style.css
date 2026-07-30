@@ -479,6 +479,15 @@
     border-color: var(--green);
     box-shadow: 0 6px 24px rgba(139,184,85,0.28);
   }
+  /* Fotka nad hlavickou varianty. Je ilustrativni — z nasich realizaci, ne
+     presne ta konfigurace. Vyska je dana pomerem stran, aby vsechny tri karty
+     zacinaly stejne vysoko. */
+  .tier .tier-photo { aspect-ratio: 16 / 10; overflow: hidden; background: var(--grey-bg); }
+  .tier .tier-photo img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .35s ease;
+  }
+  .tier:hover .tier-photo img { transform: scale(1.04); }
   .tier .tier-hdr {
     background: var(--dark); color: #fff;
     padding: 13px 22px;
