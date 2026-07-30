@@ -10,9 +10,8 @@ fotka zůstává čitelná pod jemným tmavým gradientem zleva a pod herem nás
 tmavý stats pruh. Sekce níž (karty služeb, tmavý pruh Dodavatel/Kontakty, pole
 formuláře) jazyk nabídky drží dál.
 
-> Pracovní poznámky (co je potvrzené, co čeká na doladění, zdroje čísel) jsou
-> v `POZNAMKY-INTERNI.md`, který je v `.gitignore` a **není součástí tohoto
-> veřejného repozitáře**. Tenhle README je technická dokumentace webu.
+> Tenhle README je technická dokumentace webu. Pracovní poznámky se do
+> repozitáře nedávají — jsou v souboru uvedeném v `.gitignore`.
 
 ## Struktura
 
