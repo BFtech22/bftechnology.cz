@@ -26,6 +26,7 @@ formuláře) jazyk nabídky drží dál.
 ├── inzenyrske-sluzby.html          # RfG simulace, řízení a monitoring, VN a trafostanice
 ├── kontakt.html                    # kontakt + formulář
 ├── reference.html                  # všechny realizace podle segmentu
+├── zasady-zpracovani-osobnich-udaju.html  # GDPR — správce, účely, doba, příjemci, práva
 ├── CNAME.disabled          # vlastní doména — ZÁMĚRNĚ neaktivní, viz níže
 ├── POZNAMKY-INTERNI.md     # pracovní poznámky, v .gitignore (není v repu)
 ├── assets/
@@ -67,6 +68,7 @@ adresy nebo odkazů v patičce je nutné projít všechny `.html` v korenu:
 - `inzenyrske-sluzby.html`
 - `kontakt.html`
 - `reference.html`
+- `zasady-zpracovani-osobnich-udaju.html`
 
 Na podstránkách míří odkazy v menu na `index.html#…`, na domovské zůstávají
 jako `#…`. Při kopírování hlavičky na novou podstránku tohle nezapomenout přepsat.
@@ -200,6 +202,14 @@ dělat.
 
 Skript `assets/form.js` je sdílený domovskou stránkou a `kontakt.html` — obě
 mají formulář se stejným `id="contact-form"` a prvkem `#contact-status`.
+
+**Web3Forms je z pohledu GDPR zpracovatel** — přes jeho API tečou jméno, telefon,
+e-mail a text zprávy. Proto text pod formulářem službu jmenuje a odkazuje na
+`zasady-zpracovani-osobnich-udaju.html`. Dřívější věta „Údaje nepředáváme třetím
+stranám" byla zavádějící a je pryč. Zpracování stojí na krocích před uzavřením
+smlouvy (čl. 6 odst. 1 písm. b GDPR), **ne na souhlasu** — souhlas si necháváme
+odděleně pro marketing a pro zveřejnění fotek z realizace. Když se změní
+poskytovatel formuláře, musí se změnit i bod 5 v zásadách.
 
 ## Ceník (sekce `#ceny`)
 

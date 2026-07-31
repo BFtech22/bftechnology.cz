@@ -948,6 +948,48 @@
   .wa-float:hover { transform: scale(1.08); }
   .wa-float svg { width: 32px; height: 32px; display: block; }
 
+  /* ============= PRAVNI TEXTY (zasady zpracovani osobnich udaju) =============
+     Dlouhy souvisly text — uzsi sloupec kvuli citelnosti, vetsi rozestupy
+     nadpisu a tabulka ucelu/pravnich zakladu, ktera se na mobilu roluje. */
+  .legal { max-width: 820px; }
+  .legal .updated {
+    color: #8a8a8a; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 1px; margin: 0 0 30px;
+  }
+  .legal h2 {
+    font-size: 22px; margin: 42px 0 14px; scroll-margin-top: 100px;
+  }
+  .legal h2:first-of-type { margin-top: 0; }
+  .legal h3 { font-size: 16px; margin: 26px 0 8px; }
+  .legal p { margin: 0 0 14px; }
+  .legal ul { margin: 0 0 16px; padding-left: 0; list-style: none; }
+  .legal ul li { position: relative; padding-left: 20px; margin-bottom: 8px; }
+  .legal ul li::before {
+    content: ""; position: absolute; left: 0; top: 9px;
+    width: 7px; height: 7px; background: var(--yellow); border-radius: 1px;
+  }
+  .legal a { color: var(--green-d); text-decoration: underline; }
+  .legal .toc {
+    background: var(--cream); border-left: 4px solid var(--yellow);
+    padding: 20px 24px; margin: 0 0 40px;
+  }
+  .legal .toc ol { margin: 0; padding-left: 20px; font-size: 15px; }
+  .legal .toc li { margin-bottom: 5px; }
+  /* Tabulka ucelu — na uzkem displeji ji nechame rolovat vodorovne misto
+     lamani bunek, jinak se sloupec "pravni zaklad" stane necitelnym. */
+  .legal .table-wrap { overflow-x: auto; margin: 0 0 20px; }
+  .legal table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: 14px; }
+  .legal th, .legal td {
+    border: 1px solid var(--line); padding: 11px 13px;
+    text-align: left; vertical-align: top;
+  }
+  .legal th { background: var(--cream); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .legal .contact-box {
+    background: var(--cream); border-left: 4px solid var(--green);
+    padding: 20px 24px; margin: 0 0 20px;
+  }
+  .legal .contact-box p:last-child { margin-bottom: 0; }
+
   /* ============= RESPONSIVE ============= */
   /* Prepnuti na hamburger driv nez ostatni mrizky: po pridani rozbalovaci
      polozky "Fotovoltaika" je menu sirsi a mezi ~980 a 1080 px se uz mackalo
