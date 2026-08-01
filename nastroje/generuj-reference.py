@@ -76,6 +76,9 @@ STRANKY = [
     "kontakt.html", "zasady-zpracovani-osobnich-udaju.html",
 ]
 
+# Stranky, ktere maji spolecne menu, ale do sitemapy nepatri.
+MIMO_SITEMAPU = ["404.html"]
+
 
 def nacti_posts():
     return json.loads((ROOT / "foto/insta/posts.json").read_text())
@@ -113,8 +116,17 @@ def uloziste(detail):
     return f"{m.group(1)} kWh" if m else None
 
 
+def rozmer_fotky(code):
+    """Skutecne rozmery fotky — width/height v HTML rezervuji misto a brani
+       poskakovani obsahu pri nacitani (CLS). Fotky nemaji jednotny pomer."""
+    from PIL import Image
+    with Image.open(ROOT / "foto/insta" / f"{code}.jpg") as im:
+        return im.size
+
+
 def stranka(p, slug, hlavicka, paticka):
     seg_nazev, seg_soubor = SEGMENTY[p["kategorie"]]
+    sirka, vyska = rozmer_fotky(p["code"])
     kwp = p["kwp"]
     bat = uloziste(p["detail"])
     rok = p["date"][:4]
@@ -213,7 +225,7 @@ def stranka(p, slug, hlavicka, paticka):
   <div class="container">
     <div class="ref-detail">
       <figure class="ref-foto">
-        <img src="../../foto/insta/{p['code']}.jpg" alt="{p['title']} — realizace BF technology" width="700" height="525">
+        <img src="../../foto/insta/{p['code']}.jpg" alt="{p['title']} — realizace BF technology" width="{sirka}" height="{vyska}">
       </figure>
       <div class="ref-params">
         <h2>Parametry realizace</h2>
@@ -287,15 +299,26 @@ def prepis_odkazy_galerii(mapa):
 def sitemap(slugy):
     polozky = [(f"{BASE}/", "1.0")]
     for f in STRANKY:
-        if f == "index.html":
+        if f == "index.html" or f in MIMO_SITEMAPU:
             continue
         priorita = "0.4" if f == "zasady-zpracovani-osobnich-udaju.html" else "0.8"
         polozky.append((f"{BASE}/{f}", priorita))
     for slug in sorted(slugy):
         polozky.append((f"{BASE}/reference/{slug}/", "0.6"))
 
+    # lastmod bere datum posledni zmeny souboru — rucni udrzovani data
+    # by se stejne rozeslo se skutecnosti.
+    def lastmod(url):
+        cesta = url.replace(BASE + "/", "") or "index.html"
+        soubor = ROOT / (cesta + "index.html" if cesta.endswith("/") else cesta)
+        if not soubor.exists():
+            return ""
+        import datetime
+        d = datetime.datetime.fromtimestamp(soubor.stat().st_mtime)
+        return f"<lastmod>{d:%Y-%m-%d}</lastmod>"
+
     radky = "\n".join(
-        f"  <url><loc>{u}</loc><priority>{pr}</priority></url>" for u, pr in polozky)
+        f"  <url><loc>{u}</loc>{lastmod(u)}<priority>{pr}</priority></url>" for u, pr in polozky)
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
             f'{radky}\n'

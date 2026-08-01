@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
 <title>Simulační zkoušky a ověření souladu RfG | BF technology</title>
-<meta name="description" content="Ověření souladu výrobního modulu s RfG a PPDS: simulační studie v DIgSILENT PowerFactory, zkoušky na místě, Dokument výrobního modulu a podpora až po UTP. Výrobny od 100 kW do 36 MWp, fotovoltaika i bateriová úložiště.">
+<meta name="description" content="Ověření souladu RfG: simulační studie v DIgSILENT PowerFactory, zkoušky na místě, Dokument výrobního modulu a podpora při UPOS a UTP.">
 <link rel="canonical" href="https://www.bftechnology.cz/simulacni-zkousky-rfg.html">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 
@@ -23,6 +23,36 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="assets/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Úvod",
+      "item": "https://www.bftechnology.cz/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Inženýrské služby",
+      "item": "https://www.bftechnology.cz/inzenyrske-sluzby.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Ověření souladu RfG",
+      "item": "https://www.bftechnology.cz/simulacni-zkousky-rfg.html"
+    }
+  ],
+  "isPartOf": {
+    "@id": "https://www.bftechnology.cz/#website"
+  }
+}
+</script>
 </head>
 
 <body>
@@ -38,7 +68,7 @@
   <div class="container row">
     <div class="brand-wrap">
       <a class="brand" href="index.html" aria-label="BF technology — úvod">
-      <img src="assets/BFT_LOGO_TRANSPARENT.png" alt="BF technology s.r.o.">
+      <img src="assets/BFT_LOGO_TRANSPARENT.png" alt="BF technology s.r.o." width="4264" height="1512">
     </a>
       <span class="hdr-social">
         <a href="https://www.instagram.com/bftechnology_sro/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63 3.35.94 2.68 1.35 2.01 2.01 1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></a>
@@ -95,10 +125,16 @@
 <!-- UVOD -->
 <section class="block">
   <div class="container">
+    <nav class="breadcrumb" aria-label="Drobečková navigace">
+      <a href="index.html">Úvod</a> <span>›</span>
+      <a href="inzenyrske-sluzby.html">Inženýrské služby</a> <span>›</span>
+      <span aria-current="page">Ověření souladu RfG</span>
+    </nav>
     <div class="section-head">
       <p class="eyebrow">Ověření souladu s RfG</p>
       <h1>Simulační zkoušky a ověření souladu výrobního modulu</h1>
-      <p>Bez doloženého souladu vám provozovatel distribuční soustavy nevydá souhlas s trvalým provozem. U výroben nad 100 kW to nejde změřit až za provozu — musí se to spočítat dopředu v simulaci a u větších výkonů i odzkoušet přímo na místě. Děláme obojí: model v <strong>DIgSILENT PowerFactory</strong>, zkoušky na místě i vyřízení celé dokumentace až po UTP.</p>
+      <p>Bez doloženého souladu vám provozovatel distribuční soustavy nevydá souhlas s trvalým provozem. U výroben nad 100 kW se část požadavků prokazuje výpočtem dopředu a část funkčními zkouškami přímo na místě. Děláme obojí: model v <strong>DIgSILENT PowerFactory</strong>, zkoušky na výrobně i vyřízení celé dokumentace až po UTP.</p>
+      <p class="reviewed">Metodiky PDS se mění. Obsah této stránky <b>technicky zkontrolováno 1. 8. 2026</b> — u konkrétního projektu vždy ověřujeme aktuální verzi dokumentů příslušného provozovatele.</p>
     </div>
   </div>
 </section>
@@ -121,37 +157,37 @@
     </div>
     <div class="services cols-2">
       <article class="svc">
-        <div class="hdr">
+        <h3 class="hdr">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
           Nařízení EU 2016/631 (RfG)
-        </div>
+        </h3>
         <div class="body">
           <p>Kodex sítě stanovuje závazné požadavky na připojení výroben k elektrizační soustavě v celé Evropské unii. Platí bez ohledu na to, kdo elektrárnu staví.</p>
         </div>
       </article>
       <article class="svc">
-        <div class="hdr">
+        <h3 class="hdr">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
           PPDS, příloha č. 4
-        </div>
+        </h3>
         <div class="body">
           <p>Národní implementace — pravidla pro paralelní provoz zdrojů se sítí provozovatele distribuční soustavy. Jednáme s <strong>ČEZ Distribuce, EG.D i PREdistribuce</strong>.</p>
         </div>
       </article>
       <article class="svc">
-        <div class="hdr">
+        <h3 class="hdr">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-6 3 3 4-7"/></svg>
           Dynamické chování výrobny
-        </div>
+        </h3>
         <div class="body">
           <p>Distributor vyžaduje prokázání funkcí <strong>P(f)</strong>, <strong>Q(U)</strong>, <strong>LFSM-O/U</strong>, překlenutí poruch <strong>(FRT)</strong> a řízení činného výkonu.</p>
         </div>
       </article>
       <article class="svc">
-        <div class="hdr">
+        <h3 class="hdr">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9"/></svg>
           Bez ověření není UTP
-        </div>
+        </h3>
         <div class="body">
           <p>Souhlas s trvalým provozem vydá distributor teprve po doložení souladu — simulacemi, zkouškami nebo certifikáty. Do té doby jedete v dočasném režimu.</p>
         </div>
@@ -171,18 +207,20 @@
     <div class="spec-table">
       <table>
         <thead>
-          <tr><th>Kategorie</th><th>Výkonové rozmezí</th><th>Způsob ověření souladu</th></tr>
+          <tr><th>Kategorie</th><th>Instalovaný výkon</th></tr>
         </thead>
         <tbody>
-          <tr><td>A1</td><td>do 11 kW</td><td>zjednodušený proces (od 1. 1. 2025 s UTP)</td></tr>
-          <tr><td>A2</td><td>11 – 100 kW</td><td>certifikát nebo protokol z akreditované laboratoře</td></tr>
-          <tr><td>B1</td><td>100 kW – 1 MW</td><td>„od stolu“ — dokumenty a simulace, bez fyzického měření</td></tr>
-          <tr><td>B2</td><td>1 – 30 MW (ČEZ Distribuce) / dle PDS</td><td>simulace souladu <b>a</b> praktická zkouška na místě</td></tr>
-          <tr><td>C / D</td><td>30 MW a více / připojení na 110 kV a výš</td><td>plný rozsah včetně rozšířených požadavků PDS a ČEPS</td></tr>
+          <tr><td>A1</td><td>800 W až 11 kW včetně</td></tr>
+          <tr><td>A2</td><td>nad 11 kW a méně než 100 kW</td></tr>
+          <tr><td>B1</td><td>od 100 kW a méně než 1 MW</td></tr>
+          <tr><td>B2</td><td>od 1 MW a méně než 30 MW</td></tr>
+          <tr><td>C</td><td>od 30 MW a méně než 75 MW</td></tr>
+          <tr><td>D</td><td>od 75 MW</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="spec-note"><b>Klíčová hranice je 1 MW.</b> Do 1 MW (kategorie B1) se fyzicky nic neměří — vše se prokazuje „od stolu“. Od 1 MW (kategorie B2) je povinná simulace souladu i praktická zkouška na místě instalace.</p>
+    <p class="spec-note">Uvedené hranice odpovídají aktuálně publikovanému členění ČEZ Distribuce. Rozhodující jsou vždy podmínky konkrétního PDS, smlouva o připojení, technické podmínky připojení a aktuální verze PPDS.</p>
+    <p class="spec-note"><b>Výkonová hranice 1 MW neodděluje výrobny bez měření a s měřením.</b> Zkoušky na místě se provádějí již u kategorie B1. U kategorií B2 a vyšších se však zpravidla rozšiřuje rozsah simulací, zkoušek, koordinace s PDS a požadované dokumentace.</p>
   </div>
 </section>
 
@@ -192,14 +230,14 @@
     <div class="section-head">
       <p class="eyebrow">Dvě cesty</p>
       <h2>Jak se soulad prokazuje</h2>
-      <p>Hranice vede na 100 kW. Pod ní stačí papír od výrobce, nad ní se musí počítat.</p>
+      <p>Od kategorie B1 se soulad prokazuje kombinací zkoušek, simulací, certifikátů nebo protokolů podle konkrétního požadavku, použité technologie a podmínek PDS. Simulační studie je nezbytná zejména tam, kde ji vyžaduje Dokument výrobního modulu, technické podmínky připojení nebo metodika příslušného PDS.</p>
     </div>
     <div class="services cols-2">
       <article class="svc">
-        <div class="hdr">
+        <h3 class="hdr">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg>
           Do 100 kW — kategorie A1 / A2
-        </div>
+        </h3>
         <div class="body">
           <p>Certifikát výrobku, nebo protokol z akreditované laboratoře. Simulace se nedělá.</p>
           <ul>
@@ -210,17 +248,17 @@
         </div>
       </article>
       <article class="svc">
-        <div class="hdr">
+        <h3 class="hdr">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3M7 12l3-3 2 2 4-5"/></svg>
           Nad 100 kW — kategorie B1 / B2 / C / D
-        </div>
+        </h3>
         <div class="body">
-          <p>Simulace souladu a u větších výkonů i praktická zkouška na místě.</p>
+          <p>Kombinace simulací a funkčních zkoušek na místě. <strong>Zkoušky na místě se dělají už u kategorie B1</strong>, ne až od 1 MW.</p>
           <ul>
             <li>Dynamický model výrobny — digitální dvojče</li>
-            <li>RMS simulace podle metodik PDS (kapitola 6)</li>
-            <li>Zkoušky na místě podle kapitoly 5 — od kategorie B2 výš</li>
-            <li>U B1 do 1 MW bez fyzického měření, tedy „od stolu“</li>
+            <li>RMS simulace podle metodik PDS</li>
+            <li>Funkční zkoušky na celé výrobně: řízení činného výkonu, automatické opětovné připojení, regulace U, Q a cos φ, síťové ochrany, omezování výkonu a komunikace s PDS</li>
+            <li>U B2 a výše se rozsah simulací, zkoušek i dokumentace rozšiřuje</li>
           </ul>
         </div>
       </article>
@@ -236,45 +274,45 @@
 <section class="block alt" id="bess">
   <div class="container">
     <div class="section-head">
-      <p class="eyebrow">Novinka od 1. 9. 2025</p>
-      <h2>Bateriová úložiště se ověřují zvlášť</h2>
-      <p>ČEZ Distribuce, EG.D a PREdistribuce mají společnou metodiku pro zařízení pro ukládání elektřiny. Platí pro žádosti podané od 1. 9. 2025 a týká se i <strong>doplnění baterie ke stávající elektrárně</strong> — je to změna smlouvy o připojení.</p>
+      <p class="eyebrow">Akumulace</p>
+      <h2>Samostatné ověřování bateriových úložišť</h2>
+      <p>Pro zařízení pro ukládání elektřiny nad 100 kW publikují provozovatelé distribučních soustav samostatné Dokumenty ověřování souladu a metodiky. U ČEZ Distribuce je aktuální sada dokumentů platná pro žádosti o UTP od <strong>1. 2. 2026</strong>. Při zahájení projektu vždy ověřujeme aktuální verzi dokumentu příslušného PDS. Týká se to i <strong>doplnění baterie ke stávající elektrárně</strong> — je to změna smlouvy o připojení.</p>
     </div>
     <div class="services cols-2">
       <article class="svc">
-        <div class="hdr">
+        <h3 class="hdr">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
           Samostatný dokument
-        </div>
+        </h3>
         <div class="body">
           <p>Vedle Dokumentu výrobního modulu se dokládá i <strong>Dokument ověřování souladu zařízení pro ukládání elektřiny</strong>.</p>
         </div>
       </article>
       <article class="svc">
-        <div class="hdr">
+        <h3 class="hdr">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4M21 7H8M7 21l-4-4 4-4M3 17h13"/></svg>
           Oba provozní režimy
-        </div>
+        </h3>
         <div class="body">
           <p>Zkoušky i simulace v režimu dodávky <b>i</b> odběru, včetně přechodů mezi nimi a gradientu <strong>2–40 % Pn/min</strong>.</p>
         </div>
       </article>
       <article class="svc">
-        <div class="hdr">
+        <h3 class="hdr">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
           Přísnější dynamika
-        </div>
+        </h3>
         <div class="body">
           <p>LFSM-U je povinné, rychlý poruchový proud s <strong>k = 3</strong> a podpora napětí podle PQ diagramu akumulace <strong>(±0,484·Pn)</strong>.</p>
         </div>
       </article>
       <article class="svc">
-        <div class="hdr">
+        <h3 class="hdr">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20v-6M6 20v-3M18 20v-9"/><circle cx="12" cy="6" r="3"/></svg>
           Dopad na projekty
-        </div>
+        </h3>
         <div class="body">
-          <p>Hybridní výrobny FVE + BESS ověřují obě větve souběžně. Baterie navíc <strong>nesmí poskytovat podpůrné služby před vydáním UTP</strong>.</p>
+          <p>Hybridní výrobny FVE + BESS ověřují obě větve souběžně. Zapojení akumulace do SVR nebo jiných služeb je možné až po splnění podmínek připojení, dokončení požadovaného procesu uvedení zařízení do provozu a splnění samostatných podmínek příslušného PDS, ČEPS a agregátora.</p>
         </div>
       </article>
     </div>
@@ -349,7 +387,7 @@
     <div class="section-head">
       <p class="eyebrow">Část B</p>
       <h2>Zkoušky na místě instalace</h2>
-      <p>Měřicí technika třídy A podle ČSN EN 61000-4-30, sekundární tester ochran a dva technici na výjezd. Povinné od kategorie B2, tedy od 1 MW.</p>
+      <p>Měřicí technika třídy A podle ČSN EN 61000-4-30, sekundární tester ochran a dva technici na výjezd. Funkční zkoušky na celé výrobně se provádějí <b>již od kategorie B1</b>; u B2 a výše se jejich rozsah i koordinace s PDS rozšiřuje.</p>
     </div>
     <div class="wp-list">
       <div class="wp-item"><span class="kod">Z1</span><p>Program zkoušek a koordinace termínu s distributorem i s dodavateli technologie.</p></div>
@@ -398,8 +436,9 @@
       <details open>
         <summary>Od jakého výkonu potřebuju simulační studii?</summary>
         <div class="answer">
-          <p>Od <strong>100 kW</strong>. Do 100 kW spadá výrobna do kategorie A1 nebo A2 a soulad se dokládá certifikátem výrobku nebo protokolem z akreditované laboratoře. Nad 100 kW už je potřeba simulace souladu.</p>
-          <p>Druhá hranice je <strong>1 MW</strong>: do ní (kategorie B1) se fyzicky nic neměří a vše se prokazuje výpočtem „od stolu“, nad ní (kategorie B2) přibývá povinná praktická zkouška na místě.</p>
+          <p>Zlom je na <strong>100 kW</strong>. Do 100 kW spadá výrobna do kategorie A1 nebo A2 a soulad se dokládá certifikátem výrobku nebo protokolem z akreditované laboratoře.</p>
+          <p>Od kategorie <strong>B1</strong> (100 kW až 1 MW) se soulad prokazuje kombinací simulací, certifikátů či protokolů <b>a funkčních zkoušek na místě</b> — zejména řízení činného výkonu, regulace Q, U a cos φ, ochran, komunikace s PDS a automatického opětovného připojení. Konkrétní způsob doložení jednotlivých funkcí určuje aktuální metodika a podmínky příslušného PDS; simulační studii vyžaduje zejména Dokument výrobního modulu, technické podmínky připojení nebo metodika PDS.</p>
+          <p>Hranice 1 MW tedy neodděluje „bez měření“ a „s měřením“. U kategorie B2 a výše se rozsah simulací, zkoušek i dokumentace rozšiřuje.</p>
         </div>
       </details>
       <details>
@@ -417,8 +456,8 @@
       <details>
         <summary>Doplňuju baterii ke stávající elektrárně. Týká se mě to?</summary>
         <div class="answer">
-          <p>Ano. Doplnění bateriového úložiště je změna smlouvy o připojení a od <strong>1. 9. 2025</strong> na něj platí společná metodika ČEZ Distribuce, EG.D a PREdistribuce. Vedle Dokumentu výrobního modulu se dokládá i Dokument ověřování souladu zařízení pro ukládání elektřiny a zkoušky se dělají v režimu dodávky i odběru.</p>
-          <p>Pozor na jednu věc: baterie nesmí poskytovat podpůrné služby dřív, než dostanete UTP.</p>
+          <p>Ano. Doplnění bateriového úložiště je změna smlouvy o připojení a provozovatelé distribučních soustav pro akumulaci nad 100 kW publikují samostatné Dokumenty ověřování souladu. U ČEZ Distribuce je aktuální sada platná pro žádosti o UTP od <strong>1. 2. 2026</strong>. Vedle Dokumentu výrobního modulu se tak dokládá i Dokument ověřování souladu zařízení pro ukládání elektřiny a zkoušky se dělají v režimu dodávky i odběru.</p>
+          <p>Zapojení akumulace do SVR nebo jiných služeb je možné až po splnění podmínek připojení, dokončení procesu uvedení zařízení do provozu a splnění samostatných podmínek příslušného PDS, ČEPS a agregátora.</p>
         </div>
       </details>
       <details>
@@ -457,7 +496,7 @@
 <footer class="site">
   <div class="container grid">
     <div class="logo-cell">
-      <img src="assets/BFT_LOGO_TRANSPARENT.png" alt="BF technology s.r.o.">
+      <img src="assets/BFT_LOGO_TRANSPARENT.png" alt="BF technology s.r.o." width="4264" height="1512">
       <span>BF technology s.r.o.</span>
     </div>
     <div>

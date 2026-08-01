@@ -1,4 +1,14 @@
+# DOCASNE NASTAVENI PRO STAGING NA github.io
+#
+# Web zatim nebezi na vlastni domene (CNAME je zamerne vypnuty, viz README).
+# Kdyby vyhledavace indexovaly verzi na *.github.io, vznikne duplicitni obsah
+# a v indexu skonci spatna URL. Do spusteni proto prochazeni zakazujeme.
+#
+# PRI SPUSTENI NA www.bftechnology.cz: smazat radek "Disallow: /"
+# a odkomentovat "Allow: /".
+
 User-agent: *
-Allow: /
+Disallow: /
+# Allow: /
 
 Sitemap: https://www.bftechnology.cz/sitemap.xml

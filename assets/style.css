@@ -327,7 +327,10 @@
   .svc-more { margin: 14px 0 0; font-size: 14.5px; font-weight: 700; }
   .svc-more a { color: var(--green-d); text-decoration: none; }
   .svc-more a:hover { text-decoration: underline; }
+  /* Hlavicka karty je <h3 class="hdr"> kvuli semanticke strukture nadpisu —
+     proto nulujeme vychozi margin a velikost pisma od prohlizece. */
   .svc .hdr {
+    margin: 0;
     background: var(--dark); color: #fff;
     font-size: 14px; font-weight: 700; text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -970,7 +973,17 @@
     text-transform: uppercase; letter-spacing: 0.8px; border-color: var(--dark);
   }
   .spec-table td:first-child { font-weight: 900; color: var(--black); white-space: nowrap; }
+  .spec-h3 { font-size: 17px; margin: 30px 0 12px; color: var(--black); }
   .spec-note { margin: 0 0 8px; font-size: 13px; color: #8a8a8a; }
+
+  /* Datum posledni technicke kontroly u odbornych textu (RfG, ekonomika BESS).
+     Cislo v takovem textu zastara — navstevnik musi videt, k cemu se vaze. */
+  .reviewed {
+    display: inline-block; margin: 0 0 26px;
+    background: var(--cream); border-left: 4px solid var(--green);
+    padding: 9px 16px; font-size: 13px; color: var(--text);
+  }
+  .reviewed b { color: var(--black); }
 
   /* Kroky metodiky WP1-WP6 a zkousky Z1-Z5. */
   .wp-list { display: grid; gap: 10px; margin-bottom: 8px; }

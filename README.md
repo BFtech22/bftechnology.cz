@@ -28,7 +28,8 @@ formuláře) jazyk nabídky drží dál.
 ├── kontakt.html                    # kontakt + formulář
 ├── reference.html                  # všechny realizace podle segmentu
 ├── zasady-zpracovani-osobnich-udaju.html  # GDPR — správce, účely, doba, příjemci, práva
-├── robots.txt              # povoluje procházení, oznamuje sitemapu
+├── robots.txt              # ZATÍM ZAKAZUJE procházení (staging), viz níže
+├── 404.html                # chybová stránka (GitHub Pages ji servíruje sama)
 ├── sitemap.xml             # GENEROVANÁ, viz nastroje/generuj-reference.py
 ├── reference/<slug>/index.html  # GENEROVANÉ detaily realizací (25 stránek)
 ├── nastroje/
@@ -303,6 +304,18 @@ Zdroj: https://www.instagram.com/bftechnology_sro/ — posty s hashtagem #FVE
 - **„SVJ" se v popisu segmentu nepoužívá** — bytový dům může patřit fyzické osobě,
   společenství vlastníků i bytovému družstvu. Segment se jmenuje jen „Bytové domy",
   soubor je `bytove-domy.html`.
+- **`robots.txt` zatím obsahuje `Disallow: /`** — dokud web běží jen na github.io,
+  nemá se indexovat (duplicitní obsah a špatná URL v indexu). **Při spuštění na
+  vlastní doméně tenhle řádek smazat** a odkomentovat `Allow: /`.
+- **Odborné texty mají datum technické kontroly** (`.reviewed`, `.spec-note`) —
+  metodiky PDS i ceny elektřiny se mění a návštěvník musí vidět, k čemu se číslo
+  váže. Při aktualizaci obsahu datum posunout.
+- **Kategorie B1 (100 kW – 1 MW) NENÍ „od stolu"** — funkční zkoušky na celé
+  výrobně se dělají už tam (řízení činného výkonu, regulace Q/U/cos φ, ochrany,
+  komunikace, automatické opětovné připojení). Dřívější znění stránky bylo věcně
+  chybné; hranice 1 MW rozšiřuje rozsah, ale zkoušky nezavádí.
+- **Ekonomická čísla u BESS jsou modelová** a musí být uvedená s předpoklady
+  (výkon, cyklus, účinnost, cenová úroveň). Nikdy je nepodávat jako záruku výnosu.
 - **`simulacni-zkousky-rfg.html`** je samostatná stránka kvůli SEO: „simulační zkoušky
   RfG" a „dispečerské řízení" jsou jiné dotazy od jiných lidí a jedna stránka může mít
   jen jeden title a H1. `inzenyrske-sluzby.html` na ni odkazuje jako rozcestník.
