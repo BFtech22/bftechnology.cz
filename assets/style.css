@@ -145,6 +145,8 @@
     background: var(--white); padding: 80px 24px 24px; overflow-y: auto;
   }
   .mobile-menu.open { display: block; }
+  /* Blokace rolovani stranky pod otevrenym menu — nastavuje assets/nav.js. */
+  html.menu-open, html.menu-open body { overflow: hidden; }
   .mobile-menu .close {
     position: absolute; top: 18px; right: 18px; width: 42px; height: 42px;
     background: transparent; border: 1px solid var(--line); border-radius: 6px;
@@ -268,6 +270,7 @@
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
     text-align: center;
   }
+  .stats-band .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
   .stats-band .num {
     font-size: clamp(24px, 3vw, 36px); font-weight: 900; line-height: 1;
     color: var(--yellow);
@@ -948,6 +951,27 @@
   .wa-float:hover { transform: scale(1.08); }
   .wa-float svg { width: 32px; height: 32px; display: block; }
 
+  /* ============= DETAIL REFERENCE (reference/<slug>/index.html) =============
+     Generuje nastroje/generuj-reference.py — pri zmene trid uprav i sablonu
+     ve skriptu, jinak se rozejdou. */
+  .breadcrumb { font-size: 13px; color: #8a8a8a; margin: 0 0 22px; }
+  .breadcrumb a { color: var(--green-d); }
+  .breadcrumb span { margin: 0 6px; }
+  .breadcrumb span[aria-current] { margin: 0; color: var(--text); }
+  .ref-detail { display: grid; grid-template-columns: 1.15fr 1fr; gap: 36px; align-items: start; }
+  .ref-foto { margin: 0; border: 1px solid var(--line); background: var(--cream); }
+  .ref-foto img { width: 100%; height: auto; }
+  .ref-params h2 { font-size: 20px; margin: 0 0 18px; }
+  .ref-params dl { margin: 0; }
+  .ref-params dt {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
+    color: #8a8a8a; margin-top: 16px;
+  }
+  .ref-params dt:first-child { margin-top: 0; }
+  .ref-params dd { margin: 3px 0 0; color: var(--black); font-weight: 500; }
+  .ref-ig { margin: 26px 0 0; font-size: 14px; }
+  .ref-zpet { margin: 34px 0 0; font-size: 14px; }
+
   /* ============= PRAVNI TEXTY (zasady zpracovani osobnich udaju) =============
      Dlouhy souvisly text — uzsi sloupec kvuli citelnosti, vetsi rozestupy
      nadpisu a tabulka ucelu/pravnich zakladu, ktera se na mobilu roluje. */
@@ -1049,6 +1073,7 @@
     .addon .addon-price { text-align: left; }
     .seg-note { flex-direction: column; align-items: flex-start; }
     section.block { padding: 60px 0; }
+    .ref-detail { grid-template-columns: 1fr; gap: 24px; }
     .contact-form .row { grid-template-columns: 1fr; }
     .contact-form-card { padding: 22px 18px; }
     footer.site .grid { grid-template-columns: 1fr; gap: 26px; }

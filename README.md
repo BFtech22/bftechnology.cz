@@ -1,6 +1,6 @@
 # www.bftechnology.cz
 
-Nový firemní web BF Technology s. r. o. — statický web, aktuálně se rozšiřuje
+Nový firemní web BF technology s.r.o. — statický web, aktuálně se rozšiřuje
 z jednostránky na víc stránek (domovská jako rozcestník + tematické podstránky).
 Barvy a typografii sdílí s cenovými nabídkami (bft_nabidka_html): Roboto,
 BFT zelená `#8BB855`, žlutá `#FAB21A`, tmavě šedá `#3C3C3C`.
@@ -27,6 +27,11 @@ formuláře) jazyk nabídky drží dál.
 ├── kontakt.html                    # kontakt + formulář
 ├── reference.html                  # všechny realizace podle segmentu
 ├── zasady-zpracovani-osobnich-udaju.html  # GDPR — správce, účely, doba, příjemci, práva
+├── robots.txt              # povoluje procházení, oznamuje sitemapu
+├── sitemap.xml             # GENEROVANÁ, viz nastroje/generuj-reference.py
+├── reference/<slug>/index.html  # GENEROVANÉ detaily realizací (25 stránek)
+├── nastroje/
+│   └── generuj-reference.py  # generuje reference/, přepisuje odkazy galerií, píše sitemap
 ├── CNAME.disabled          # vlastní doména — ZÁMĚRNĚ neaktivní, viz níže
 ├── POZNAMKY-INTERNI.md     # pracovní poznámky, v .gitignore (není v repu)
 ├── assets/
@@ -69,6 +74,14 @@ adresy nebo odkazů v patičce je nutné projít všechny `.html` v korenu:
 - `kontakt.html`
 - `reference.html`
 - `zasady-zpracovani-osobnich-udaju.html`
+
+Detaily realizací v `reference/<slug>/` se **needitují ručně** — hlavičku
+i patičku si berou z `reference.html` a generují se skriptem. Po zásahu do menu
+nebo patičky spusť z kořene repozitáře:
+
+```
+python3 nastroje/generuj-reference.py
+```
 
 Na podstránkách míří odkazy v menu na `index.html#…`, na domovské zůstávají
 jako `#…`. Při kopírování hlavičky na novou podstránku tohle nezapomenout přepsat.
@@ -251,13 +264,22 @@ Informace o NZÚ v odpovědích platí k 7/2026 — při změně programu aktual
 ## Insta lišta (reference)
 
 Sekce `#reference` — horizontální lišta karet generovaná z pole `INSTA_POSTS`
-v `index.html`. Každá karta odkazuje na původní příspěvek
-`https://www.instagram.com/p/<code>/`.
+v `index.html`. Karta odkazuje na **detail realizace** `reference/<slug>/`, pokud
+má záznam pole `slug`; jinak na příspěvek `https://www.instagram.com/p/<code>/`.
+Odkaz na Instagram je pak až na detailu. Ikona Instagramu se u karet s detailem
+záměrně nezobrazuje, aby neslibovala něco jiného, než kam odkaz vede.
 
 **Přidání nové reference:**
 1. stáhni fotku postu do `foto/insta/<code>.jpg` (čtverec ~640 px),
 2. přidej záznam na ZAČÁTEK pole `INSTA_POSTS` v `index.html`,
-3. (volitelně) doplň i `foto/insta/posts.json`.
+3. doplň i `foto/insta/posts.json` (z něj se generují galerie na podstránkách),
+4. přidej dvojici `code: slug` do `SLUGY` v `nastroje/generuj-reference.py`
+   a skript spusť — vznikne detail realizace, přepíšou se odkazy v galeriích
+   a přegeneruje se `sitemap.xml`.
+
+Detail dostanou jen realizace se známou lokalitou — ze záznamu „Bytový dům"
+bez města by vznikla stránka bez informační hodnoty. Takové karty zůstávají
+odkázané na Instagram.
 
 Zdroj: https://www.instagram.com/bftechnology_sro/ — posty s hashtagem #FVE
 (staženo 29. 7. 2026, 16 postů z 24 celkem).
@@ -266,6 +288,13 @@ Zdroj: https://www.instagram.com/bftechnology_sro/ — posty s hashtagem #FVE
 
 - Formulář má honeypot pole `website`; po odeslání redirect `?sent=1` / `?sent=0`.
 - Web musí běžet přes webserver kvůli `send.php` (statika jinak funguje i z file://).
-- **Údaje ve stats pruhu pod herem** jsou zatím jen ty doložitelné (223 kWp = největší
-  realizace z IG, vlastní týmy, na klíč, servis). Až budou k dispozici reálná čísla
-  (počet realizací, roky na trhu, celkový instalovaný výkon), patří sem.
+- **Údaje ve stats pruhu pod herem** jsou zatím jen ty doložitelné (999 kWp = největší
+  realizace, vlastní týmy, na klíč). Až budou k dispozici další reálná čísla
+  (roky na trhu, celkový instalovaný výkon), patří sem.
+- **Nároková tvrzení**: v heru je „Více než 150 realizací vlastními realizačními
+  týmy". Číslo musí být doložitelné — dřívější „Stovky instalací po celé ČR"
+  doložitelné nebylo a odporovalo i regionálnímu zaměření firmy.
+- **Návratnost** se uvádí jako 7–10 let *u vhodně navrženého systému* a vždy
+  s výčtem předpokladů. Jedno univerzální číslo bez podmínek se slibovat nedá.
+- **Název firmy** se píše všude jednotně `BF technology s.r.o.`, značka `BF technology`
+  (malé „t"), shodně s obchodním rejstříkem.
