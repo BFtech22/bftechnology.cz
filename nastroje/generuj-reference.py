@@ -136,9 +136,17 @@ def stranka(p, slug, hlavicka, paticka):
         ("Dokončeno", cesky_datum(p["date"])),
     ]
 
+    # Pole "url" v posts.json ma tri stavy:
+    #   chybi        -> prispevek existuje, odkaz se sklada z kodu
+    #   ""           -> realizace nema prispevek na Instagramu
+    #   "https://.." -> prispevek existuje pod jinym kodem, nez je nazev fotky
+    #                   (typicky u fotek, ktere jsme dostali drive nez vysly na IG)
     ig = ""
-    if p.get("url", None) != "":
-        ig = (f'\n      <p class="ref-ig"><a href="https://www.instagram.com/p/{p["code"]}/" '
+    odkaz = p.get("url", None)
+    if odkaz != "":
+        if not odkaz:
+            odkaz = f'https://www.instagram.com/p/{p["code"]}/'
+        ig = (f'\n      <p class="ref-ig"><a href="{odkaz}" '
               f'target="_blank" rel="noopener">Zobrazit příspěvek na Instagramu →</a></p>')
 
     return f"""<!DOCTYPE html>
