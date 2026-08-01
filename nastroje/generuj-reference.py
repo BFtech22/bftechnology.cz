@@ -60,7 +60,7 @@ SLUGY = {
 
 SEGMENTY = {
     "rodinne-domy": ("Rodinné domy",       "fotovoltaika-rodinne-domy.html"),
-    "bytove-domy":  ("Bytové domy a SVJ",  "bytove-domy-svj.html"),
+    "bytove-domy":  ("Bytové domy",        "bytove-domy.html"),
     "firmy":        ("Firmy a průmysl",    "fotovoltaika-firmy.html"),
     "ohrev-vody":   ("Ohřev vody",         "ohrev-vody.html"),
 }
@@ -70,10 +70,10 @@ MESICE = ["", "ledna", "února", "března", "dubna", "května", "června",
 
 # Stranky, ve kterych se prepisuji odkazy galerii a ktere jdou do sitemapy.
 STRANKY = [
-    "index.html", "fotovoltaika-rodinne-domy.html", "bytove-domy-svj.html",
+    "index.html", "fotovoltaika-rodinne-domy.html", "bytove-domy.html",
     "fotovoltaika-firmy.html", "bateriova-uloziste.html", "ohrev-vody.html",
-    "inzenyrske-sluzby.html", "reference.html", "kontakt.html",
-    "zasady-zpracovani-osobnich-udaju.html",
+    "simulacni-zkousky-rfg.html", "inzenyrske-sluzby.html", "reference.html",
+    "kontakt.html", "zasady-zpracovani-osobnich-udaju.html",
 ]
 
 

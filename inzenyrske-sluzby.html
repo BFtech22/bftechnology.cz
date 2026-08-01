@@ -52,9 +52,10 @@
         </button>
         <div class="sub">
           <a href="fotovoltaika-rodinne-domy.html">Rodinné domy</a>
-          <a href="bytove-domy-svj.html">Bytové domy a SVJ</a>
+          <a href="bytove-domy.html">Bytové domy</a>
           <a href="fotovoltaika-firmy.html">Firmy a průmysl</a>
           <a href="ohrev-vody.html">Fotovoltaický ohřev vody</a>
+          <a href="simulacni-zkousky-rfg.html">Simulační zkoušky (RfG)</a>
           <a class="active" href="inzenyrske-sluzby.html" aria-current="page">Inženýrské služby</a>
         </div>
       </div>
@@ -77,9 +78,10 @@
   </button>
   <p class="m-group">Fotovoltaika</p>
   <a class="m-sub" href="fotovoltaika-rodinne-domy.html">Rodinné domy</a>
-  <a class="m-sub" href="bytove-domy-svj.html">Bytové domy a SVJ</a>
+  <a class="m-sub" href="bytove-domy.html">Bytové domy</a>
   <a class="m-sub" href="fotovoltaika-firmy.html">Firmy a průmysl</a>
   <a class="m-sub" href="ohrev-vody.html">Fotovoltaický ohřev vody</a>
+  <a class="m-sub" href="simulacni-zkousky-rfg.html">Simulační zkoušky (RfG)</a>
   <a class="m-sub active" href="inzenyrske-sluzby.html" aria-current="page">Inženýrské služby</a>
   <p class="m-group">Dále</p>
   <a href="bateriova-uloziste.html">Bateriová úložiště</a>
@@ -115,80 +117,42 @@
     <div class="section-head">
       <p class="eyebrow">Ověření souladu</p>
       <h2>Simulační zkoušky a ověření souladu (RfG)</h2>
-      <p>Každý nový výrobní modul musí doložit, že splňuje evropské nařízení o připojení výroben k síti a navazující Pravidla provozování distribuční soustavy. U větších výroben to nejde změřit až za provozu — musí se to spočítat dopředu v simulaci. Patříme k několika firmám v ČR, které tohle dělají.</p>
+      <p>Každý nový výrobní modul musí doložit, že splňuje evropské nařízení o připojení výroben k síti a navazující Pravidla provozování distribuční soustavy. U výroben nad 100 kW to nejde změřit až za provozu — musí se to spočítat dopředu v simulaci a od 1 MW i odzkoušet na místě. Patříme k několika firmám v ČR, které tohle dělají.</p>
     </div>
 
-    <div class="services cols-2">
+    <div class="services">
       <article class="svc">
         <div class="hdr">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3M7 12l3-3 2 2 4-5"/></svg>
-          Model výrobny
+          Simulační studie
         </div>
         <div class="body">
-          <p>Digitální dvojče elektrárny v <strong>DIgSILENT PowerFactory</strong> — od místa připojení přes spínací stanici a trafostanice až po jednotlivé měniče.</p>
-          <ul>
-            <li>Audit projektové dokumentace a smlouvy o připojení</li>
-            <li>Kontrola datových listů měničů, trafostanic, kabelů a úložiště</li>
-            <li>Validace modelu měniče a sjednocení verzí</li>
-            <li>Parametry sítě v místě připojení podle dat od distributora</li>
-          </ul>
+          <p>Digitální dvojče výrobny v DIgSILENT PowerFactory — statické výpočty, dynamické RMS simulace a protokol pro distributora.</p>
         </div>
       </article>
-
       <article class="svc">
         <div class="hdr">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-6 3 3 4-7"/></svg>
-          Statické výpočty
+          Zkoušky na místě
         </div>
         <div class="body">
-          <p>Ustálené stavy a mezní situace, než se přejde k dynamice.</p>
-          <ul>
-            <li>Výpočty ustáleného chodu pro různé provozní stavy</li>
-            <li>Zkratové poměry v minimu i maximu podle IEC 60909</li>
-            <li>Napěťové profily, zatížení prvků a P‑Q diagram v místě připojení</li>
-            <li>Posouzení kapacitního jalového výkonu kabelové přípojky a návrh kompenzace</li>
-          </ul>
+          <p>Od kategorie B2, tedy od 1 MW: zkoušky síťových ochran, provozní zkoušky řízení výkonu a ověření záznamu poruch.</p>
         </div>
       </article>
-
-      <article class="svc">
-        <div class="hdr">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-          Dynamické scénáře
-        </div>
-        <div class="body">
-          <p>Jádro celé studie — jak se zdroj zachová, když se v síti něco stane.</p>
-          <ul>
-            <li><strong>Překlenutí poruch</strong> při podpětí i přepětí, pro symetrické i nesymetrické poruchy</li>
-            <li>Dynamická podpora napětí — dodávka jalového proudu během poruchy</li>
-            <li><strong>Frekvenční odezva</strong> při nadfrekvenci i podfrekvenci</li>
-            <li>Autonomní regulace napětí a jalového výkonu podle zadané charakteristiky</li>
-            <li>Náběh činného výkonu po opětovném připojení a nadpěťové ochrany</li>
-            <li>Součinnost elektrárny a bateriového úložiště v předávacím místě</li>
-          </ul>
-        </div>
-      </article>
-
       <article class="svc">
         <div class="hdr">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg>
-          Protokol a schválení
+          Dokumentace až po UTP
         </div>
         <div class="body">
-          <p>Studie sama o sobě nestačí — musí projít u provozovatele distribuční soustavy.</p>
-          <ul>
-            <li>Simulační protokol se všemi průběhy napětí, proudu, výkonů a frekvence</li>
-            <li>Vyplněný <strong>Dokument výrobního modulu</strong> a podklady pro ověření úložiště</li>
-            <li>Výkonová zkouška přímo na místě — ověření, že se technologie chová jako model</li>
-            <li>Jednání s distributorem a zapracování jeho připomínek</li>
-          </ul>
+          <p>Dokument výrobního modulu, u baterií i Dokument ověřování souladu, vypořádání připomínek a podklady k žádosti o trvalý provoz.</p>
         </div>
       </article>
     </div>
 
     <div class="seg-note">
-      <p>Pracujeme s <b>ČEZ Distribuce, EG.D i PRE</b>. Zpracovali jsme simulační studie pro výrobní moduly od 100 kW do 36 MWp — desítky elektráren, z toho velkou část pro jiné dodavatele fotovoltaiky. Jednáme se všemi třemi hlavními provozovateli distribučních soustav. Když zkouška napoprvé neprojde, navrhujeme technické úpravy vedoucí ke splnění požadavků.</p>
-      <a class="btn btn-primary" href="kontakt.html">Poptat simulační studii</a>
+      <p>Zpracovali jsme <b>desítky protokolů</b> pro výrobní moduly od 100 kW do 36 MWp — velkou část pro jiné dodavatele fotovoltaiky. Celý proces, kategorie výroben i to, co od vás potřebujeme, rozebíráme na samostatné stránce.</p>
+      <a class="btn btn-primary" href="simulacni-zkousky-rfg.html">Simulační zkoušky podrobně</a>
     </div>
   </div>
 </section>

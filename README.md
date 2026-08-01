@@ -20,7 +20,8 @@ formuláře) jazyk nabídky drží dál.
 ├── index.html                      # domovská (JS inline, styly už ne)
 ├── fotovoltaika-firmy.html         # firmy a průmysl 2–999 kWp
 ├── fotovoltaika-rodinne-domy.html  # rodinné domy
-├── bytove-domy-svj.html            # bytové domy a SVJ
+├── bytove-domy.html               # bytové domy (FO majitel, SVJ i družstvo)
+├── simulacni-zkousky-rfg.html     # ověření souladu RfG — samostatná SEO stránka
 ├── bateriova-uloziste.html         # baterie 10 kWh – 5 MWh
 ├── ohrev-vody.html                 # fotovoltaický ohřev vody
 ├── inzenyrske-sluzby.html          # RfG simulace, řízení a monitoring, VN a trafostanice
@@ -67,7 +68,8 @@ adresy nebo odkazů v patičce je nutné projít všechny `.html` v korenu:
 - `index.html`
 - `fotovoltaika-firmy.html`
 - `fotovoltaika-rodinne-domy.html`
-- `bytove-domy-svj.html`
+- `bytove-domy.html`
+- `simulacni-zkousky-rfg.html`
 - `bateriova-uloziste.html`
 - `ohrev-vody.html`
 - `inzenyrske-sluzby.html`
@@ -298,3 +300,15 @@ Zdroj: https://www.instagram.com/bftechnology_sro/ — posty s hashtagem #FVE
   s výčtem předpokladů. Jedno univerzální číslo bez podmínek se slibovat nedá.
 - **Název firmy** se píše všude jednotně `BF technology s.r.o.`, značka `BF technology`
   (malé „t"), shodně s obchodním rejstříkem.
+- **„SVJ" se v popisu segmentu nepoužívá** — bytový dům může patřit fyzické osobě,
+  společenství vlastníků i bytovému družstvu. Segment se jmenuje jen „Bytové domy",
+  soubor je `bytove-domy.html`.
+- **`simulacni-zkousky-rfg.html`** je samostatná stránka kvůli SEO: „simulační zkoušky
+  RfG" a „dispečerské řízení" jsou jiné dotazy od jiných lidí a jedna stránka může mít
+  jen jeden title a H1. `inzenyrske-sluzby.html` na ni odkazuje jako rozcestník.
+  Obsah vychází z prezentace BFK systems (kategorie A1–D, proces SoP → UTP, WP1–WP6,
+  Z1–Z5) — při změně metodiky PDS je nutné projít i tuhle stránku.
+- **Ekonomika velkých BESS** v sekci `#ekonomika` na `bateriova-uloziste.html` vychází
+  z reálné analýzy pro konkrétního zákazníka. Na webu je **anonymizovaně** — bez jména
+  klienta, čísla smlouvy a konkrétní investice. Data o záporných hodinách spotu jsou
+  veřejná (OTE, denní trh).
