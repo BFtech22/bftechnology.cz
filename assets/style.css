@@ -639,6 +639,9 @@
   }
   .seg-case h3 { margin: 0 0 6px; font-size: 16.5px; font-weight: 700; color: var(--black); line-height: 1.3; }
   .seg-case p { margin: 0; font-size: 13.5px; }
+  /* Dve mrizky karet za sebou (rozbor moznosti + sluzby na bytovych domech)
+     by se jinak dotykaly — svc karty maji tmavou hlavicku hned u okraje. */
+  .seg-cases + .services { margin-top: 22px; }
   .seg-note {
     margin-top: 18px; padding: 20px 24px;
     background: var(--dark); color: rgba(255,255,255,0.92);
