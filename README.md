@@ -33,7 +33,9 @@ formuláře) jazyk nabídky drží dál.
 ├── sitemap.xml             # GENEROVANÁ, viz nastroje/generuj-reference.py
 ├── reference/<slug>/index.html  # GENEROVANÉ detaily realizací (25 stránek)
 ├── nastroje/
-│   └── generuj-reference.py  # generuje reference/, přepisuje odkazy galerií, píše sitemap
+│   ├── generuj-obrazky.py    # WebP varianty a zmenšeniny ke každé fotce
+│   ├── generuj-reference.py  # generuje reference/, přepisuje odkazy galerií, píše sitemap
+│   └── generuj-picture.py    # přepíše <img> na <picture> se srcset
 ├── CNAME.disabled          # vlastní doména — ZÁMĚRNĚ neaktivní, viz níže
 ├── POZNAMKY-INTERNI.md     # pracovní poznámky, v .gitignore (není v repu)
 ├── assets/
@@ -85,6 +87,26 @@ nebo patičky spusť z kořene repozitáře:
 ```
 python3 nastroje/generuj-reference.py
 ```
+
+### Obrázky — WebP a srcset
+
+Fotky mají vedle zdrojového JPEG/PNG ještě **WebP variantu a poloviční
+zmenšeninu**, HTML je servíruje přes `<picture>` se `srcset`. Mobil tak stáhne
+místo 700px JPEGu 350px WebP — u galerie referencí je to rozdíl 2,3 MB → 400 kB.
+
+Po přidání nové fotky spusť **v tomhle pořadí**:
+
+```
+python3 nastroje/generuj-obrazky.py && python3 nastroje/generuj-reference.py && python3 nastroje/generuj-picture.py
+```
+
+Pořadí je důležité: `generuj-reference` přepisuje detailní stránky ze šablony,
+takže musí běžet **před** `generuj-picture`, jinak by z nich `<picture>` zmizelo.
+Oba poslední skripty jsou idempotentní, dají se pouštět opakovaně.
+
+AVIF se negeneruje — Pillow v tomhle prostředí nemá podporu
+(`features.check('avif')` je `False`). Až bude, stačí ho doplnit do
+`generuj-obrazky.py`; `generuj-picture.py` s dalším `<source>` počítá.
 
 Na podstránkách míří odkazy v menu na `index.html#…`, na domovské zůstávají
 jako `#…`. Při kopírování hlavičky na novou podstránku tohle nezapomenout přepsat.

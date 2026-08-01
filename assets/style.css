@@ -24,6 +24,9 @@
   a { color: var(--green-d); text-decoration: none; }
   a:hover { color: var(--dark); }
   img { max-width: 100%; display: block; height: auto; }
+  /* <picture> je jen obal pro <source> — nesmi vytvaret vlastni box, jinak by
+     se rozbily selektory typu ".ph img" a vysky pocitane z rodice (hero). */
+  picture { display: contents; }
   .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 
   /* ============= HEADER ============= */
