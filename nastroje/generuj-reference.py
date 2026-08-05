@@ -96,6 +96,9 @@ def sablona_ram():
     def nahoru(html):
         html = re.sub(r'(href|src)="([a-z0-9][a-z0-9._-]*\.(?:html|png|jpg|webp|css|js))', r'\1="../../\2', html)
         html = re.sub(r'(href|src)="(assets/|foto/)', r'\1="../../\2', html)
+        # Odkazy na domovskou stranku jsou v koreni "./" a "./#kotva" — na
+        # detailu realizace musi vest o dve urovne vys.
+        html = html.replace('href="./"', 'href="../../"').replace('href="./#', 'href="../../#')
 
         # srcset nese vic cest oddelenych carkou — regexy vys ho neresi
         # a bez tohohle by logo v hlavicce detailu ukazovalo do prazdna.
@@ -214,7 +217,7 @@ def stranka(p, slug, hlavicka, paticka):
 <section class="block">
   <div class="container">
     <nav class="breadcrumb" aria-label="Drobečková navigace">
-      <a href="../../index.html">Úvod</a> <span>›</span>
+      <a href="../../">Úvod</a> <span>›</span>
       <a href="../../reference.html">Reference</a> <span>›</span>
       <span aria-current="page">{p['title']}</span>
     </nav>

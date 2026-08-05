@@ -326,6 +326,14 @@ Zdroj: https://www.instagram.com/bftechnology_sro/ — posty s hashtagem #FVE
 - **„SVJ" se v popisu segmentu nepoužívá** — bytový dům může patřit fyzické osobě,
   společenství vlastníků i bytovému družstvu. Segment se jmenuje jen „Bytové domy",
   soubor je `bytove-domy.html`.
+- **Odkazy na domovskou stránku jsou `./` a `../../`, ne `index.html`.** Kanonická
+  adresa úvodu je `/`, takže odkazovat na `index.html` by vyrábělo druhou dostupnou
+  variantu téže stránky. Záměrně **relativní**, ne `/` od kořene — staging běží na
+  `bftech22.github.io/bftechnology.cz/` v podadresáři a absolutní cesta by tam
+  ukazovala mimo web. Na produkční doméně se obojí chová stejně.
+- **`sameAs` v JSON-LD obsahuje jen profily BF technology** (Instagram, Facebook).
+  `bfksystems.cz` tam nepatří — je to jiná právní osoba, ne další profil téže
+  entity. Propojení firem popisuje běžný obsah sekce „Součást skupiny".
 - **`robots.txt` zatím obsahuje `Disallow: /`** — dokud web běží jen na github.io,
   nemá se indexovat (duplicitní obsah a špatná URL v indexu). **Při spuštění na
   vlastní doméně tenhle řádek smazat** a odkomentovat `Allow: /`.
