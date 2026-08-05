@@ -31,7 +31,7 @@ BASE = "https://www.bftechnology.cz"
 # u nich neznáme lokalitu ("Bytový dům" bez mesta), takze by z toho vznikla
 # prazdna stranka bez informacni hodnoty.
 SLUGY = {
-    "vysonin-999kwp":  "fve-vysonin-999-kwp",
+    "podhuri-vysociny-999kwp": "fve-podhuri-vysociny-999-kwp",
     "DZjcImrIds9":     "fve-novy-bor-11-kwp",
     "DZH5j6RIC-B":     "fve-varnsdorf-prumyslovy-objekt-50-kwp",
     "DY7BKuXIYuj":     "fve-krasna-lipa-12-kwp",
@@ -94,8 +94,21 @@ def sablona_ram():
     paticka = src[src.index("<!-- FOOTER -->"):src.index("<!-- Rozbalovací menu -->")]
 
     def nahoru(html):
-        html = re.sub(r'(href|src)="([a-z0-9][a-z0-9._-]*\.(?:html|png|jpg|css|js))', r'\1="../../\2', html)
+        html = re.sub(r'(href|src)="([a-z0-9][a-z0-9._-]*\.(?:html|png|jpg|webp|css|js))', r'\1="../../\2', html)
         html = re.sub(r'(href|src)="(assets/|foto/)', r'\1="../../\2', html)
+
+        # srcset nese vic cest oddelenych carkou — regexy vys ho neresi
+        # a bez tohohle by logo v hlavicce detailu ukazovalo do prazdna.
+        def srcset_nahoru(m):
+            kandidati = []
+            for kus in m.group(2).split(","):
+                kus = kus.strip()
+                if kus and not kus.startswith(("http", "../", "data:")):
+                    kus = "../../" + kus
+                kandidati.append(kus)
+            return f'{m.group(1)}="' + ", ".join(kandidati) + '"'
+
+        html = re.sub(r'(srcset)="([^"]+)"', srcset_nahoru, html)
         return html
 
     hlavicka = nahoru(hlavicka)
