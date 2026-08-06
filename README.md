@@ -337,9 +337,10 @@ Zdroj: https://www.instagram.com/bftechnology_sro/ — posty s hashtagem #FVE
 - **`robots.txt` zatím obsahuje `Disallow: /`** — dokud web běží jen na github.io,
   nemá se indexovat (duplicitní obsah a špatná URL v indexu). **Při spuštění na
   vlastní doméně tenhle řádek smazat** a odkomentovat `Allow: /`.
-- **Odborné texty mají datum technické kontroly** (`.reviewed`, `.spec-note`) —
-  metodiky PDS i ceny elektřiny se mění a návštěvník musí vidět, k čemu se číslo
-  váže. Při aktualizaci obsahu datum posunout.
+- **V odborných textech neuvádíme konkrétní data platnosti metodik ani lhůty**
+  (např. „platné od 1. 2. 2026", „max. 12 měsíců"). Rychle zastarají a lhůty se
+  navíc liší podle typu zařízení a procesu. Místo toho je všude věta, že aktuální
+  verzi dokumentů ověřujeme při zahájení projektu.
 - **Kategorie B1 (100 kW – 1 MW) NENÍ „od stolu"** — funkční zkoušky na celé
   výrobně se dělají už tam (řízení činného výkonu, regulace Q/U/cos φ, ochrany,
   komunikace, automatické opětovné připojení). Dřívější znění stránky bylo věcně
