@@ -337,6 +337,15 @@ Zdroj: https://www.instagram.com/bftechnology_sro/ — posty s hashtagem #FVE
 - **`robots.txt` zatím obsahuje `Disallow: /`** — dokud web běží jen na github.io,
   nemá se indexovat (duplicitní obsah a špatná URL v indexu). **Při spuštění na
   vlastní doméně tenhle řádek smazat** a odkomentovat `Allow: /`.
+- **Terminologie připojení**: UPOS = „umožnění provozu pro ověření souladu",
+  ne „dočasný provoz"; UTP = „umožnění trvalého provozu". Označení výsledného
+  dokumentu se mezi provozovateli liší (EG.D „konečné provozní oznámení",
+  ČEZ Distribuce jinak), proto na webu píšeme obecně „dokončení UTP".
+  U akumulace je to „dokument ověření souladu zařízení pro ukládání elektřiny".
+  Zkratka se píše **RfG**, ne RFG.
+- **UPOS se netýká všech výroben** — standardně od kategorie B1, tedy od 100 kW
+  včetně. A1 a A2 zpravidla přecházejí rovnou do UTP. Musí to být na stránce
+  napsané, jinak text zavádí menší zákazníky.
 - **V odborných textech neuvádíme konkrétní data platnosti metodik ani lhůty**
   (např. „platné od 1. 2. 2026", „max. 12 měsíců"). Rychle zastarají a lhůty se
   navíc liší podle typu zařízení a procesu. Místo toho je všude věta, že aktuální
