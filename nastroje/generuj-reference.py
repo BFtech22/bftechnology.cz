@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BASE = "https://www.bftechnology.cz"
 
 # Slug = URL detailu. Klic je "code" z posts.json.
-# Zaznamy, ktere tu nejsou, detailni stranku nedostanou — typicky proto, ze
+# Zaznamy, ktere tu nejsou, detailni stranku nedostanou – typicky proto, ze
 # u nich neznáme lokalitu ("Bytový dům" bez mesta), takze by z toho vznikla
 # prazdna stranka bez informacni hodnoty.
 SLUGY = {
@@ -96,11 +96,11 @@ def sablona_ram():
     def nahoru(html):
         html = re.sub(r'(href|src)="([a-z0-9][a-z0-9._-]*\.(?:html|png|jpg|webp|css|js))', r'\1="../../\2', html)
         html = re.sub(r'(href|src)="(assets/|foto/)', r'\1="../../\2', html)
-        # Odkazy na domovskou stranku jsou v koreni "./" a "./#kotva" — na
+        # Odkazy na domovskou stranku jsou v koreni "./" a "./#kotva" – na
         # detailu realizace musi vest o dve urovne vys.
         html = html.replace('href="./"', 'href="../../"').replace('href="./#', 'href="../../#')
 
-        # srcset nese vic cest oddelenych carkou — regexy vys ho neresi
+        # srcset nese vic cest oddelenych carkou – regexy vys ho neresi
         # a bez tohohle by logo v hlavicce detailu ukazovalo do prazdna.
         def srcset_nahoru(m):
             kandidati = []
@@ -132,8 +132,40 @@ def uloziste(detail):
     return f"{m.group(1)} kWh" if m else None
 
 
+# Popis fotky pro alt — vyhledavace i Google Images ctou, co na obrazku je.
+# Format: "Fotovoltaika na rodinnem dome v Krasne Lipe 12,15 kWp".
+SEGMENT_ALT = {
+    "rodinne-domy": "Fotovoltaika na rodinném domě",
+    "bytove-domy":  "Fotovoltaika na bytovém domě",
+    "firmy":        "Fotovoltaika na firemním objektu",
+    "ohrev-vody":   "Fotovoltaický ohřev vody",
+}
+MISTO_6_PAD = {
+    "Krásná Lípa": "v Krásné Lípě", "Rumburk": "v Rumburku", "Varnsdorf": "ve Varnsdorfu",
+    "Děčín": "v Děčíně", "Nový Bor": "v Novém Boru", "Tachov": "v Tachově",
+    "Staré Křečany": "ve Starých Křečanech", "Jílové": "v Jílovém", "Rožany": "v Rožanech",
+    "Vlčí Hora": "ve Vlčí Hoře", "Dolní Podluží": "v Dolním Podluží",
+    "Nová Oleška": "v Nové Olešce", "Praha": "v Praze", "Podhůří Vysočiny": "v podhůří Vysočiny",
+}
+
+
+def alt_fotky(p):
+    misto = p["title"].split("–")[0].strip()
+    zaklad = SEGMENT_ALT[p["kategorie"]]
+    kus = MISTO_6_PAD.get(misto)
+    # Kdyz nazev lokalitu nenese ("Bytovy dum" bez mesta), nechame jen segment —
+    # opakovat "Fotovoltaika na bytovem dome – Bytovy dum" nedava smysl.
+    if kus:
+        text = f"{zaklad} {kus}"
+    elif misto.lower().startswith(zaklad.split()[-1].lower()[:5]) or misto in zaklad:
+        text = zaklad
+    else:
+        text = f"{zaklad} – {misto}"
+    return text + (f" {p['kwp']}" if p.get("kwp") else "")
+
+
 def rozmer_fotky(code):
-    """Skutecne rozmery fotky — width/height v HTML rezervuji misto a brani
+    """Skutecne rozmery fotky – width/height v HTML rezervuji misto a brani
        poskakovani obsahu pri nacitani (CLS). Fotky nemaji jednotny pomer."""
     from PIL import Image
     with Image.open(ROOT / "foto/insta" / f"{code}.jpg") as im:
@@ -147,7 +179,7 @@ def stranka(p, slug, hlavicka, paticka):
     bat = uloziste(p["detail"])
     rok = p["date"][:4]
     url = f"{BASE}/reference/{slug}/"
-    popis_meta = f"{p['title']}" + (f" — {kwp}" if kwp else "") + f". {p['detail'][0].upper()}{p['detail'][1:]}. Realizace BF technology s.r.o., {rok}."
+    popis_meta = f"{p['title']}" + (f" – {kwp}" if kwp else "") + f". {p['detail'][0].upper()}{p['detail'][1:]}. Realizace BF technology s.r.o., {rok}."
 
     dlazdice = []
     if kwp:
@@ -158,7 +190,7 @@ def stranka(p, slug, hlavicka, paticka):
 
     radky = [
         ("Segment", seg_nazev),
-        ("Výkon fotovoltaické elektrárny", kwp or "—"),
+        ("Výkon fotovoltaické elektrárny", kwp or "–"),
         ("Bateriové úložiště", bat or "bez úložiště"),
         ("Co jsme instalovali", p["detail"]),
         ("Dokončeno", cesky_datum(p["date"])),
@@ -182,7 +214,7 @@ def stranka(p, slug, hlavicka, paticka):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
-<title>{p['title']}{' — ' + kwp if kwp else ''} | Reference BF technology</title>
+<title>{p['title']}{' – ' + kwp if kwp else ''} | Reference BF technology</title>
 <meta name="description" content="{popis_meta}">
 <link rel="canonical" href="{url}">
 <link rel="icon" type="image/png" href="../../assets/favicon.png">
@@ -190,7 +222,7 @@ def stranka(p, slug, hlavicka, paticka):
 <!-- Open Graph -->
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="BF technology">
-<meta property="og:title" content="{p['title']}{' — ' + kwp if kwp else ''}">
+<meta property="og:title" content="{p['title']}{' – ' + kwp if kwp else ''}">
 <meta property="og:description" content="{popis_meta}">
 <meta property="og:url" content="{url}">
 <meta property="og:image" content="{BASE}/foto/insta/{p['code']}.jpg">
@@ -207,7 +239,7 @@ def stranka(p, slug, hlavicka, paticka):
 <body>
 
 <!--
-  GENEROVANY SOUBOR — needituj rucne.
+  GENEROVANY SOUBOR – needituj rucne.
   Vznikl z foto/insta/posts.json skriptem nastroje/generuj-reference.py.
   Zmeny delej tam a skript pust znovu.
 -->
@@ -241,7 +273,7 @@ def stranka(p, slug, hlavicka, paticka):
   <div class="container">
     <div class="ref-detail">
       <figure class="ref-foto">
-        <img src="../../foto/insta/{p['code']}.jpg" alt="{p['title']} — realizace BF technology" width="{sirka}" height="{vyska}">
+        <img src="../../foto/insta/{p['code']}.jpg" alt="{alt_fotky(p)}" width="{sirka}" height="{vyska}">
       </figure>
       <div class="ref-params">
         <h2>Parametry realizace</h2>
@@ -302,7 +334,7 @@ def prepis_odkazy_galerii(mapa):
 
         t = re.sub(r'<div class="ig-card is-static">(.*?)\n      </div>', zeStatickeKarty, t, flags=re.S)
 
-        # Ikona Instagramu na karte, ktera vede na detail realizace, by lhala —
+        # Ikona Instagramu na karte, ktera vede na detail realizace, by lhala –
         # odkaz na prispevek je az na detailu.
         t = re.sub(r'(<a class="ig-card" href="[^"]*" title="Detail realizace">.*?)\n\s*<span class="ig-ico">.*?</span>',
                    r'\1', t, flags=re.S)
@@ -322,7 +354,7 @@ def sitemap(slugy):
     for slug in sorted(slugy):
         polozky.append((f"{BASE}/reference/{slug}/", "0.6"))
 
-    # lastmod bere datum posledni zmeny souboru — rucni udrzovani data
+    # lastmod bere datum posledni zmeny souboru – rucni udrzovani data
     # by se stejne rozeslo se skutecnosti.
     def lastmod(url):
         cesta = url.replace(BASE + "/", "") or "index.html"
@@ -348,7 +380,7 @@ def main():
     mapa = {}
     for code, slug in SLUGY.items():
         if code not in posts:
-            print(f"  !! kod {code} neni v posts.json — preskakuji")
+            print(f"  !! kod {code} neni v posts.json – preskakuji")
             continue
         d = ROOT / "reference" / slug
         d.mkdir(parents=True, exist_ok=True)
@@ -358,10 +390,10 @@ def main():
 
     zmeny = prepis_odkazy_galerii(mapa)
     for f, n in zmeny.items():
-        print(f"  odkazy v galerii: {f} — prepsano {n}")
+        print(f"  odkazy v galerii: {f} – prepsano {n}")
 
     (ROOT / "sitemap.xml").write_text(sitemap(mapa.values()))
-    print(f"sitemap.xml — {len(mapa) + len(STRANKY)} URL")
+    print(f"sitemap.xml – {len(mapa) + len(STRANKY)} URL")
 
     bez = [p["title"] for c, p in posts.items() if c not in SLUGY and p["kategorie"] != "tym"]
     if bez:

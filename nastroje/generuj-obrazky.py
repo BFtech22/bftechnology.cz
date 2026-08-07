@@ -18,7 +18,7 @@ Co dela:
       foto/insta/DZjcImrIds9-350.webp 350w
       foto/insta/DZjcImrIds9-350.jpg  350w
 
-AVIF se negeneruje — Pillow v tomhle prostredi nema podporu (features.check('avif')
+AVIF se negeneruje – Pillow v tomhle prostredi nema podporu (features.check('avif')
 je False). Az bude, staci doplnit format do FORMATY; sablony v generuj-picture.py
 uz s dalsim <source> pocitaji.
 
@@ -33,7 +33,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 
 # Zdroje, ke kterym se varianty generuji.
-# Jen zdrojove fotky — soubory s priponou "-<sirka>" jsou uz vygenerovane
+# Jen zdrojove fotky – soubory s priponou "-<sirka>" jsou uz vygenerovane
 # varianty a musi se preskocit, jinak by se generovaly varianty variant.
 import re as _re
 ZDROJE = sorted(f for f in ROOT.glob("foto/insta/*.jpg")
@@ -45,12 +45,12 @@ ZDROJE = sorted(f for f in ROOT.glob("foto/insta/*.jpg")
     ROOT / "assets/BFT_LOGO_WHITE.png",
 ]
 
-# q75 je u uz jednou zkomprimovaneho JPEGu rozumny kompromis — nize uz jsou
+# q75 je u uz jednou zkomprimovaneho JPEGu rozumny kompromis – nize uz jsou
 # na fotkach strech videt artefakty kolem ramu panelu.
 KVALITA_WEBP = 75
 KVALITA_JPEG = 82
 
-# Logo se nikde nezobrazuje siroke — v hlavicce ma 52 px, v paticce 62 px vysky.
+# Logo se nikde nezobrazuje siroke – v hlavicce ma 52 px, v paticce 62 px vysky.
 # Puvodni soubor ma pres 4000 px, takze mu davame vlastni, mnohem mensi sirky.
 SIRKY = {
     "BFT_LOGO_TRANSPARENT.png": (420, 210),
@@ -85,7 +85,7 @@ def varianty(zdroj):
             vysledky.append((webp, sirka, kopie.height))
 
             # Zaloha v puvodnim formatu pro prohlizece bez WebP. U puvodni
-            # sirky uz v repozitari je — je to zdrojovy soubor.
+            # sirky uz v repozitari je – je to zdrojovy soubor.
             if sirka != puvodni_sirka:
                 zaloha = zaklad.with_suffix(zdroj.suffix)
                 if zdroj.suffix.lower() in (".jpg", ".jpeg"):

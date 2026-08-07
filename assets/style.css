@@ -219,6 +219,12 @@
     text-shadow: 0 2px 10px rgba(0,0,0,0.35);
     max-width: 13ch;
   }
+  /* Podtitulek pod H1 — puvodni marketingova veta se presunula pod nadpis,
+     ktery ted nese klicovy vyraz. */
+  .hero .hero-claim-big {
+    margin: 4px 0 0; font-size: clamp(19px, 2.1vw, 24px);
+    font-weight: 500; color: rgba(255,255,255,0.92);
+  }
   .hero-lead {
     font-size: clamp(16px, 1.9vw, 20px);
     font-weight: 400; line-height: 1.55;

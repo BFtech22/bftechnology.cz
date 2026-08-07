@@ -4,7 +4,7 @@
 Prepise <img> na <picture> se srcset tam, kde k obrazku existuji varianty
 vygenerovane skriptem nastroje/generuj-obrazky.py.
 
-Skript je idempotentni — obrazky, ktere uz jsou v <picture>, preskakuje,
+Skript je idempotentni – obrazky, ktere uz jsou v <picture>, preskakuje,
 takze se da pustit znovu po pridani nove fotky.
 
 Poradi (generuj-reference musi bezet DRIV, protoze prepisuje cele detailni
@@ -106,7 +106,7 @@ def preved(soubor):
         orig = srcset(mapa, "orig", prefix)
 
         img = cely
-        # Kdyz zdroj neni mezi variantami (logo — zdroj ma pres 4000 px, ale
+        # Kdyz zdroj neni mezi variantami (logo – zdroj ma pres 4000 px, ale
         # zobrazuje se v par stovkach), prepiseme i src a rozmery na nejvetsi
         # variantu. Jinak by zaloha pro prohlizec bez WebP stahovala original.
         from PIL import Image
