@@ -337,6 +337,18 @@ Zdroj: https://www.instagram.com/bftechnology_sro/ – posty s hashtagem #FVE
 - **`robots.txt` zatím obsahuje `Disallow: /`** – dokud web běží jen na github.io,
   nemá se indexovat (duplicitní obsah a špatná URL v indexu). **Při spuštění na
   vlastní doméně tenhle řádek smazat** a odkomentovat `Allow: /`.
+- **Typografie**: v textech se používá **krátká pomlčka –** (en dash) s mezerami,
+  ne dlouhá „—". Rozsahy s jednotkou se píší s mezerami (`10 kWh – 5 MWh`),
+  rozsahy holých čísel bez mezer (`10–15 kWh`). Generátory v `nastroje/` to
+  respektují, aby se dlouhá pomlčka nevracela.
+- **Alt texty fotek** popisují, co na obrázku je: „Fotovoltaika na rodinném domě
+  v Krásné Lípě 12,15 kWp". Skládá je `alt_fotky()` v `generuj-reference.py`
+  z kategorie, lokality (6. pád) a výkonu — kvůli Google Images.
+- **Nepoužívat „plná soběstačnost"** — 13 kWp a 15 kWh neřeší sezónní rozdíl
+  mezi létem a zimou. Píše se „maximální využití vlastní výroby".
+- **Výrobna nad 100 kW ≠ automaticky vlastní trafostanice.** Napěťovou hladinu
+  určuje místo připojení, rezervovaný výkon a podmínky PDS; NN je nad 100 kW
+  běžné. Formulace na webu to musí nechávat otevřené.
 - **Terminologie připojení**: UPOS = „umožnění provozu pro ověření souladu",
   ne „dočasný provoz"; UTP = „umožnění trvalého provozu". Označení výsledného
   dokumentu se mezi provozovateli liší (EG.D „konečné provozní oznámení",
