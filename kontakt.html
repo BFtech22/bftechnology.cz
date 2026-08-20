@@ -242,8 +242,9 @@
       <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="post" autocomplete="on">
         <input type="hidden" name="access_key" value="91503d4e-b679-498e-b242-41b5b195d9a7">
         <input type="hidden" name="subject" value="Nová poptávka z webu bftechnology.cz">
-        <input type="hidden" name="from_name" value="bftechnology.cz">
-        <input type="hidden" name="redirect" value="https://www.bftechnology.cz/?sent=1#kontakt">
+        <input type="hidden" name="from_name" value="Poptávkový formulář bftechnology.cz">
+        <input type="hidden" name="replyto" value="">
+        <input type="hidden" name="redirect" value="https://www.bftechnology.cz/kontakt?sent=1#kontakt">
         <div class="hp-field" aria-hidden="true">
           <label for="botcheck">Nevyplňujte</label>
           <input type="checkbox" id="botcheck" name="botcheck" tabindex="-1" autocomplete="off">
@@ -251,32 +252,33 @@
         <div class="row">
           <div class="field">
             <label for="f-name">Jméno a příjmení *</label>
-            <input type="text" id="f-name" name="name" required>
+            <input type="text" id="f-name" name="Jméno a příjmení" required>
           </div>
           <div class="field">
             <label for="f-phone">Telefon *</label>
-            <input type="tel" id="f-phone" name="phone" required>
+            <input type="tel" id="f-phone" name="Telefon" required>
           </div>
           <div class="field full">
             <label for="f-email">E-mail *</label>
-            <input type="email" id="f-email" name="email" required>
+            <input type="email" id="f-email" name="E-mail" required>
           </div>
           <div class="field full">
             <label for="f-interest">Mám zájem o</label>
-            <select id="f-interest" name="interest">
-              <option>Fotovoltaickou elektrárnu</option>
-              <option>FVE + bateriové úložiště</option>
-              <option>Wallbox / nabíjení elektromobilu</option>
-              <option>Chytrou domácnost Loxone</option>
-              <option>Kamery a zabezpečení</option>
-              <option>Elektroinstalaci</option>
-              <option>Jiné / poradenství</option>
+            <select id="f-interest" name="Zájem o">
+              <option value="Fotovoltaická elektrárna">Fotovoltaickou elektrárnu</option>
+              <option value="FVE + bateriové úložiště">FVE + bateriové úložiště</option>
+              <option value="Wallbox / nabíjení elektromobilu">Wallbox / nabíjení elektromobilu</option>
+              <option value="Chytrá domácnost Loxone">Chytrou domácnost Loxone</option>
+              <option value="Kamery a zabezpečení">Kamery a zabezpečení</option>
+              <option value="Elektroinstalace">Elektroinstalaci</option>
+              <option value="Jiné / poradenství">Jiné / poradenství</option>
             </select>
           </div>
           <div class="field full">
             <label for="f-message">Zpráva</label>
-            <textarea id="f-message" name="message" placeholder="Popište nám objekt a co plánujete…"></textarea>
+            <textarea id="f-message" name="Zpráva" placeholder="Popište nám objekt a co plánujete…"></textarea>
           </div>
+          <input type="hidden" name="Odesláno ze stránky" value="Stránka Kontakt">
           <div class="field full">
             <p class="gdpr">Odesláním formuláře berete na vědomí zpracování osobních údajů za účelem vyřízení poptávky. K odeslání formuláře využíváme službu Web3Forms jako externího zpracovatele. Podrobnosti najdete v <a href="zasady-zpracovani-osobnich-udaju.html">zásadách zpracování osobních údajů</a>.</p>
             <button type="submit">Odeslat poptávku</button>

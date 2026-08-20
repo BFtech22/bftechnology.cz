@@ -17,6 +17,20 @@ const ERR_MSG = 'Odeslání se nepodařilo. Zkuste to prosím znovu, nebo nám z
   el.scrollIntoView({ block: 'center' });
 })();
 
+// Web3Forms posila nazvy poli do e-mailu tak, jak jsou napsana ve formulari
+// (proto jsou cesky). Predmet a reply-to doplnujeme az pred odeslanim, aby sla
+// notifikace rovnou zodpovedet zakaznikovi a v predmetu bylo videt, o co jde.
+function doplnMetadata(form) {
+  const hodnota = (n) => (form.querySelector(`[name="${n}"]`)?.value || '').trim();
+  const nastav  = (n, v) => { const el = form.querySelector(`input[name="${n}"]`); if (el && v) el.value = v; };
+
+  const jmeno = hodnota('Jméno a příjmení');
+  const zajem = hodnota('Zájem o');
+
+  nastav('replyto', hodnota('E-mail'));
+  nastav('subject', ['Poptávka z webu', zajem, jmeno].filter(Boolean).join(' – '));
+}
+
 (function contactSubmit() {
   const form = document.getElementById('contact-form');
   if (!form) return;
@@ -35,6 +49,8 @@ const ERR_MSG = 'Odeslání se nepodařilo. Zkuste to prosím znovu, nebo nám z
     button.textContent = 'Odesílám…';
     status.className = '';
     status.textContent = '';
+
+    doplnMetadata(form);
 
     try {
       const res = await fetch(form.action, {
