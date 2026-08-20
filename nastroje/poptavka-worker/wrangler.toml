@@ -1,0 +1,9 @@
+# Nasazeni pres CLI: npx wrangler deploy
+# Klic se nahrava zvlast:  npx wrangler secret put RESEND_API_KEY
+name = "poptavka-bft"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+[vars]
+MAIL_FROM = "BF technology <poptavky@send.bftechnology.cz>"
+MAIL_TO = "info@bftechnology.cz"

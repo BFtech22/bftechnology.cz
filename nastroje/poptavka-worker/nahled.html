@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Náhled poptávkových e-mailů</title>
+<style>
+  body { margin:0; padding:28px; background:#E8E8E8; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif; color:#3C3C3C; }
+  h2 { font-size:15px; text-transform:uppercase; letter-spacing:.08em; color:#6B6B6B; margin:0 0 10px; }
+  .predmet { background:#fff; border:1px solid #D8D8D8; border-radius:8px; padding:10px 14px; font-size:14px; margin-bottom:12px; }
+  .predmet b { color:#79A644; }
+  .sloupce { display:flex; gap:28px; flex-wrap:wrap; align-items:flex-start; }
+  .sloupec { flex:1 1 620px; }
+  iframe { width:100%; height:900px; border:1px solid #D8D8D8; border-radius:8px; background:#fff; }
+</style>
+</head>
+<body>
+<div class="sloupce">
+  <div class="sloupec">
+    <h2>1 · Notifikace do firmy</h2>
+    <div class="predmet" id="predmet-1"></div>
+    <iframe id="mail-1" title="Náhled notifikace"></iframe>
+  </div>
+  <div class="sloupec">
+    <h2>2 · Potvrzení zákazníkovi</h2>
+    <div class="predmet" id="predmet-2"></div>
+    <iframe id="mail-2" title="Náhled potvrzení"></iframe>
+  </div>
+</div>
+
+<script type="module">
+// Nahled sablon z worker.js. Otevri pres lokalni server (moduly nejedou pres file://):
+//   python3 -m http.server 8899   a pak /nastroje/poptavka-worker/nahled.html
+import { htmlNotifikace, htmlPotvrzeni } from './worker.js';
+
+const ukazka = {
+  jmeno: 'Ludmila Zdvíhalová',
+  telefon: '+420 776 169 645',
+  email: 'zdvihalova.ludmila@seznam.cz',
+  zajem: 'Fotovoltaická elektrárna',
+  zdroj: 'Stránka Kontakt',
+  cas: new Intl.DateTimeFormat('cs-CZ', { dateStyle: 'long', timeStyle: 'short', timeZone: 'Europe/Prague' }).format(new Date()),
+  zprava: 'Dobrý den, vlastním chatu v zahrádkářské kolonii na Letné, chata je nová, není zavedena do chaty elektrika a proto bych měla zájem o fotovoltaickou elektrárnu. Jedná se o sedlovou střechu velikosti i s terasou 7 x 4 m. Děkuji za informaci a přeji pěkný den.',
+};
+
+document.getElementById('predmet-1').innerHTML =
+  `Předmět: <b>Poptávka z webu – ${ukazka.zajem} – ${ukazka.jmeno}</b><br>Odpovědět: ${ukazka.email}`;
+document.getElementById('predmet-2').innerHTML =
+  `Předmět: <b>Děkujeme za poptávku – BF technology</b><br>Komu: ${ukazka.email}`;
+
+document.getElementById('mail-1').srcdoc = htmlNotifikace(ukazka);
+document.getElementById('mail-2').srcdoc = htmlPotvrzeni(ukazka);
+</script>
+</body>
+</html>
