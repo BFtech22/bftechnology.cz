@@ -247,31 +247,6 @@
   .hero-claim svg { width: 18px; height: 18px; color: var(--green); flex-shrink: 0; }
 
   .hero .cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
-
-  /* Rozcestnik sluzeb na spodku uvodniho banneru. Ikony jsou stejne jako
-     v sekci Sluzby, aby dlazdice a karty patrily viditelne k sobe. */
-  .hero-services { position: relative; z-index: 2; width: 100%; padding-bottom: 34px; }
-  .hero-services .container {
-    display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px;
-  }
-  .hs-card {
-    display: flex; flex-direction: column; align-items: center; gap: 12px;
-    text-align: center; text-decoration: none;
-    background: rgba(255,255,255,0.96);
-    border-radius: 6px; border-bottom: 3px solid transparent;
-    padding: 24px 14px 20px;
-    color: var(--dark); font-size: 13.5px; font-weight: 700; line-height: 1.35;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.22);
-    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-  }
-  .hs-card svg { width: 36px; height: 36px; flex: none; color: var(--green); stroke-width: 1.5; }
-  .hs-card:hover, .hs-card:focus-visible {
-    transform: translateY(-4px);
-    border-bottom-color: var(--green);
-    box-shadow: 0 16px 36px rgba(0,0,0,0.30);
-  }
-  /* Sticky hlavicka by jinak prekryla zacatek karty, na kterou dlazdice miri. */
-  .svc[id] { scroll-margin-top: 100px; }
   .btn {
     display: inline-block;
     padding: 15px 30px;
@@ -1114,7 +1089,6 @@
      polozky "Fotovoltaika" je menu sirsi a mezi ~980 a 1080 px se uz mackalo
      k logu (mezera pod 20 px). Layout sekci se prepina az na 980 px niz. */
   @media (max-width: 1080px) {
-    .hero-services .container { grid-template-columns: repeat(3, 1fr); }
     nav.primary { display: none; }
     .hamburger { display: inline-flex; }
     .header-cta { display: none; }
@@ -1139,10 +1113,6 @@
     .strip-nav { display: none; }
   }
   @media (max-width: 640px) {
-    .hero-services { padding-bottom: 26px; }
-    .hero-services .container { grid-template-columns: 1fr 1fr; gap: 10px; }
-    .hs-card { font-size: 12.5px; padding: 16px 8px 13px; gap: 9px; }
-    .hs-card svg { width: 28px; height: 28px; }
     .container { padding: 0 16px; }
     .hero { min-height: 0; }
     .hero .content { padding: 54px 16px 58px; }
