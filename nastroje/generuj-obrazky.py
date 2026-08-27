@@ -50,6 +50,11 @@ ZDROJE = sorted(f for f in ROOT.glob("foto/insta/*.jpg")
 KVALITA_WEBP = 75
 KVALITA_JPEG = 82
 
+# Uvodni fotka se roztahuje pres celou sirku okna, takze na ni je q75 poznat —
+# na velkych monitorech se rozmaze. Dostava vlastni, mnohem vyssi kvalitu.
+KVALITA_WEBP_VYJIMKY = {"title-photo.jpg": 90}
+KVALITA_JPEG_VYJIMKY = {"title-photo.jpg": 90}
+
 # Logo se nikde nezobrazuje siroke – v hlavicce ma 52 px, v paticce 62 px vysky.
 # Puvodni soubor ma pres 4000 px, takze mu davame vlastni, mnohem mensi sirky.
 SIRKY = {
@@ -65,6 +70,8 @@ def varianty(zdroj):
         pruhlednost = im.mode in ("RGBA", "LA", "P") and "transparency" in im.info or im.mode == "RGBA"
 
         sirky = SIRKY.get(zdroj.name) or (puvodni_sirka, max(1, puvodni_sirka // 2))
+        kvalita_webp = KVALITA_WEBP_VYJIMKY.get(zdroj.name, KVALITA_WEBP)
+        kvalita_jpeg = KVALITA_JPEG_VYJIMKY.get(zdroj.name, KVALITA_JPEG)
         vysledky = []
 
         for sirka in sirky:
@@ -81,7 +88,7 @@ def varianty(zdroj):
 
             webp = zaklad.with_suffix(".webp")
             (kopie if pruhlednost else kopie.convert("RGB")).save(
-                webp, "WEBP", quality=KVALITA_WEBP, method=6)
+                webp, "WEBP", quality=kvalita_webp, method=6)
             vysledky.append((webp, sirka, kopie.height))
 
             # Zaloha v puvodnim formatu pro prohlizece bez WebP. U puvodni
@@ -89,7 +96,7 @@ def varianty(zdroj):
             if sirka != puvodni_sirka:
                 zaloha = zaklad.with_suffix(zdroj.suffix)
                 if zdroj.suffix.lower() in (".jpg", ".jpeg"):
-                    kopie.convert("RGB").save(zaloha, "JPEG", quality=KVALITA_JPEG,
+                    kopie.convert("RGB").save(zaloha, "JPEG", quality=kvalita_jpeg,
                                               optimize=True, progressive=True)
                 else:
                     kopie.save(zaloha, optimize=True)
