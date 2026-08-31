@@ -53,10 +53,13 @@ function doplnMetadata(form) {
     doplnMetadata(form);
 
     try {
+      // Nazvy poli maji diakritiku a Web3Forms je z multipartu cte jako Latin-1
+      // (v e-mailu pak byla "JmÃ©no a pÅ™Ã­jmenÃ­"). Z JSONu je precte spravne.
+      const pole = Object.fromEntries(new FormData(form).entries());
       const res = await fetch(form.action, {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(pole)
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.success) {
