@@ -52,7 +52,7 @@ export default {
       email: data['E-mail'],
       zajem: data['Zájem o'] || 'Neuvedeno',
       zprava: data['Zpráva'] || '',
-      zdroj: data['Odesláno ze stránky'] || 'Web',
+      zdroj: data['Odesláno z webu'] || 'BF technology',
       cas: cesky_cas(),
     };
 
@@ -240,7 +240,7 @@ function htmlNotifikace(z) {
           ${radek('Telefon', z.telefon, 'tel:' + telHref(z.telefon))}
           ${radek('E-mail', z.email, 'mailto:' + z.email)}
           ${radek('Zájem o', z.zajem)}
-          ${radek('Odesláno ze stránky', z.zdroj)}
+          ${radek('Odesláno z webu', z.zdroj)}
           ${radek('Přijato', z.cas)}
         </table>
      </td></tr>
@@ -262,7 +262,7 @@ function textNotifikace(z) {
     `Telefon:  ${z.telefon}`,
     `E-mail:   ${z.email}`,
     `Zájem o:  ${z.zajem}`,
-    `Stránka:  ${z.zdroj}`,
+    `Web:      ${z.zdroj}`,
     `Přijato:  ${z.cas}`,
   ];
   if (z.zprava) radky.push('', 'Zpráva:', z.zprava);
