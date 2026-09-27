@@ -217,7 +217,8 @@ def stranka(p, slug, hlavicka, paticka):
 <title>{p['title']}{' – ' + kwp if kwp else ''} | Reference BF technology</title>
 <meta name="description" content="{popis_meta}">
 <link rel="canonical" href="{url}">
-<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../../assets/favicon.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
 
 <!-- Open Graph -->
 <meta property="og:type" content="article">
