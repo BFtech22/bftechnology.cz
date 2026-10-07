@@ -41,7 +41,7 @@ Bez instalace čehokoli, přes web:
    | Secret   | `RESEND_API_KEY` | `re_…` z kroku 1.5                                    |
    | Text     | `MAIL_FROM`      | `BF technology <poptavky@send.bftechnology.cz>`        |
    | Text     | `MAIL_TO`        | `info@bftechnology.cz`                                 |
-   | Text     | `MAIL_CC`        | nepovinné, další adresy oddělené čárkou                |
+   | Text     | `MAIL_CC`        | `majak@bfksystems.cz` (kopie do Majáku)                |
 
 5. Adresa Workeru je `https://poptavka-bft.<účet>.workers.dev` – tu si poznač.
 
